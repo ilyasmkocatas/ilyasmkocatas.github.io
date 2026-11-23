@@ -51,6 +51,12 @@
     section{padding:96px 0}
     .div{border:none;border-top:1px solid var(--line);margin:0}
 
+    /* ── LOADER ───────────────────────────────────────── */
+    #loader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;pointer-events:none;transition:opacity .45s var(--ease)}
+    #loader.out{opacity:0}
+    .loader-mark{font-family:var(--mono);font-size:1.05rem;font-weight:600;color:var(--acc);letter-spacing:.14em;animation:pop .5s var(--ease) .05s both}
+    .loader-mark span{color:var(--mid)}
+
     /* ── NAV ──────────────────────────────────────────── */
     nav{position:sticky;top:0;z-index:100;background:var(--glass);border-bottom:1px solid var(--line);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
     .nav-inner{max-width:var(--max);margin:0 auto;padding:0 clamp(18px,3.4vw,44px);height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
@@ -65,20 +71,20 @@
 
     /* ── HERO ─────────────────────────────────────────── */
     #home{padding:128px 0 96px;position:relative;overflow:hidden}
-    .hero-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,75,37,.2) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 55% 100% at 100% 50%,black 10%,transparent 75%);mask-image:radial-gradient(ellipse 55% 100% at 100% 50%,black 10%,transparent 75%)}
-    .hero-eyebrow{font-family:var(--mono);font-size:.68rem;font-weight:400;text-transform:uppercase;letter-spacing:.18em;color:var(--kx);margin-bottom:28px}
-    .hero-name{font-size:clamp(3.2rem,8vw,5.8rem);font-weight:800;line-height:1.02;letter-spacing:-.05em;color:var(--fg);margin-bottom:24px}
+    .hero-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,75,37,.2) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 55% 100% at 100% 50%,black 10%,transparent 75%);mask-image:radial-gradient(ellipse 55% 100% at 100% 50%,black 10%,transparent 75%);animation:fadeArea 1.4s var(--ease) .15s both}
+    .hero-eyebrow{font-family:var(--mono);font-size:.68rem;font-weight:400;text-transform:uppercase;letter-spacing:.18em;color:var(--kx);margin-bottom:28px;animation:sl .6s var(--ease) .3s both}
+    .hero-name{font-size:clamp(3.2rem,8vw,5.8rem);font-weight:800;line-height:1.02;letter-spacing:-.05em;color:var(--fg);margin-bottom:24px;animation:rise .75s var(--ease) .4s both}
     .hero-name .k{color:var(--acc)}
-    .hero-desc{font-size:clamp(1rem,1.3vw,1.15rem);color:var(--mid);max-width:460px;margin-bottom:24px;line-height:1.72}
-    .hero-meta{font-family:var(--mono);font-size:.7rem;color:var(--dim);letter-spacing:.04em;margin-bottom:40px}
+    .hero-desc{font-size:clamp(1rem,1.3vw,1.15rem);color:var(--mid);max-width:460px;margin-bottom:24px;line-height:1.72;animation:rise .75s var(--ease) .52s both}
+    .hero-meta{font-family:var(--mono);font-size:.7rem;color:var(--dim);letter-spacing:.04em;margin-bottom:40px;animation:rise .75s var(--ease) .62s both}
     .hero-meta span{color:var(--acc);margin:0 6px}
-    .hero-cta{display:flex;flex-wrap:wrap;gap:10px}
-    .btn{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;font-weight:600;font-size:.85rem;border-radius:var(--r-m);cursor:pointer;transition:transform .15s var(--ease),opacity .15s,background .15s,border-color .15s}
-    .btn:hover{transform:translateY(-2px)}
-    .btn.acc{background:var(--acc);color:#fff;border:1px solid var(--acc)}
-    .btn.acc:hover{background:var(--acc2);border-color:var(--acc2);opacity:1}
+    .hero-cta{display:flex;flex-wrap:wrap;gap:10px;animation:rise .75s var(--ease) .72s both}
+    .btn{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;font-weight:600;font-size:.85rem;border-radius:var(--r-m);cursor:pointer;transition:transform .2s var(--ease),opacity .15s,background .15s,border-color .15s,box-shadow .2s var(--ease)}
+    .btn:hover{transform:translateY(-2px);opacity:1}
+    .btn.acc{background:var(--acc);color:#fff;border:1px solid var(--acc);box-shadow:0 0 0 0 rgba(255,75,37,0)}
+    .btn.acc:hover{background:var(--acc2);border-color:var(--acc2);box-shadow:0 8px 24px rgba(255,75,37,.28)}
     .btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
-    .btn.ghost:hover{background:var(--surf2);border-color:var(--line2);opacity:1}
+    .btn.ghost:hover{background:var(--surf2);border-color:var(--line2)}
     .btn svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
 
     /* ── SECTION HEADERS ──────────────────────────────── */
@@ -86,6 +92,8 @@
     .sh-eyebrow{font-family:var(--mono);font-size:.65rem;font-weight:400;text-transform:uppercase;letter-spacing:.18em;color:var(--kx);margin-bottom:12px}
     .sh-title{font-size:clamp(1.9rem,3.8vw,2.7rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:var(--fg)}
     .sh-title .k{color:var(--acc);font-weight:800}
+    .sh-title .boxmark{position:relative;color:var(--acc);display:inline-block}
+    .sh-title .boxmark::after{content:'';position:absolute;bottom:.05em;left:-.04em;right:-.04em;height:.2em;background:var(--acc-soft);border-radius:3px;z-index:-1}
     .sh-desc{font-size:.9rem;color:var(--mid);margin-top:10px;max-width:480px;line-height:1.65}
     .sec-num{font-family:var(--mono);font-size:5.5rem;font-weight:700;color:rgba(255,75,37,.045);letter-spacing:-.05em;line-height:1;position:absolute;top:-16px;right:0;user-select:none;pointer-events:none}
     [data-theme="light"] .sec-num{color:rgba(255,75,37,.07)}
@@ -95,17 +103,18 @@
     .about-text p{color:var(--mid);margin-bottom:14px;line-height:1.78;font-size:.93rem}
     .about-text p:last-child{margin-bottom:0}
     .kpi{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .kpi-cell{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);padding:18px 20px;transition:border-color .15s}
-    .kpi-cell:hover{border-color:var(--acc-line)}
+    .kpi-cell{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);padding:18px 20px;transition:border-color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease)}
+    .kpi-cell:hover{border-color:var(--acc-line);transform:translateY(-2px);box-shadow:var(--shadow)}
     .kpi-num{font-family:var(--mono);font-size:1.9rem;font-weight:600;color:var(--acc);letter-spacing:-.04em;line-height:1;margin-bottom:5px}
     .kpi-lbl{font-size:.72rem;color:var(--dim);letter-spacing:.02em}
 
     /* ── PROJECTS ─────────────────────────────────────── */
     .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
-    .proj-card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);padding:24px;display:flex;flex-direction:column;gap:16px;transition:border-color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease)}
-    .proj-card:hover{border-color:var(--acc-line);transform:translateY(-3px);box-shadow:var(--shadow)}
+    .proj-card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);padding:24px;display:flex;flex-direction:column;gap:16px;transition:border-color .25s var(--ease),transform .25s var(--ease),box-shadow .25s var(--ease)}
+    .proj-card:hover{border-color:var(--acc-line);transform:translateY(-4px);box-shadow:var(--shadow)}
     .proj-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-    .proj-mono{width:44px;height:44px;background:var(--acc-soft);border:1px solid var(--acc-line);border-radius:var(--r-s);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.7rem;font-weight:600;color:var(--acc);letter-spacing:.04em;flex-shrink:0}
+    .proj-mono{width:44px;height:44px;background:var(--acc-soft);border:1px solid var(--acc-line);border-radius:var(--r-s);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.7rem;font-weight:600;color:var(--acc);letter-spacing:.04em;flex-shrink:0;transition:background .2s,transform .2s var(--ease)}
+    .proj-card:hover .proj-mono{background:var(--acc-line);transform:scale(1.05)}
     .proj-badge{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);background:var(--acc-soft);border:1px solid var(--acc-line);padding:4px 9px;border-radius:100px}
     .proj-badge.soon{color:var(--dim);background:var(--surf2);border-color:var(--line)}
     .proj-name{font-size:1.1rem;font-weight:800;color:var(--fg);letter-spacing:-.025em}
@@ -130,8 +139,8 @@
 
     /* ── EDUCATION ────────────────────────────────────── */
     .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .edu-card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);padding:28px;transition:border-color .15s}
-    .edu-card:hover{border-color:var(--acc-line)}
+    .edu-card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);padding:28px;transition:border-color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease)}
+    .edu-card:hover{border-color:var(--acc-line);transform:translateY(-3px);box-shadow:var(--shadow)}
     .edu-year{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--kx);margin-bottom:12px}
     .edu-school{font-size:1.1rem;font-weight:800;color:var(--fg);margin-bottom:3px;letter-spacing:-.03em}
     .edu-type{font-size:.85rem;color:var(--mid);margin-bottom:18px}
@@ -141,16 +150,16 @@
 
     /* ── MEMBERSHIPS ──────────────────────────────────── */
     .mem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px}
-    .mem-item{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);padding:16px 18px;display:flex;flex-direction:column;gap:3px;transition:border-color .15s}
-    .mem-item:hover{border-color:var(--acc-line)}
+    .mem-item{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);padding:16px 18px;display:flex;flex-direction:column;gap:3px;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+    .mem-item:hover{border-color:var(--acc-line);transform:translateY(-2px)}
     .mem-title{font-size:.86rem;font-weight:700;color:var(--fg)}
     .mem-role{font-size:.76rem;color:var(--mid)}
     .mem-period{font-family:var(--mono);font-size:.62rem;color:var(--kx);letter-spacing:.04em;margin-top:5px}
 
     /* ── AWARDS ───────────────────────────────────────── */
     .aw-list{display:flex;flex-direction:column;gap:9px;margin-top:28px}
-    .aw-item{display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);transition:border-color .15s}
-    .aw-item:hover{border-color:var(--acc-line)}
+    .aw-item{display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);transition:border-color .2s var(--ease),transform .2s var(--ease)}
+    .aw-item:hover{border-color:var(--acc-line);transform:translateX(4px)}
     .aw-mark{font-family:var(--mono);font-size:.7rem;font-weight:600;color:var(--acc);min-width:28px;text-align:right;flex-shrink:0}
     .aw-sep{width:1px;height:28px;background:var(--line);flex-shrink:0}
     .aw-title{font-size:.9rem;font-weight:700;color:var(--fg)}
@@ -158,10 +167,12 @@
 
     /* ── SKILLS ───────────────────────────────────────── */
     .sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-    .sk-group{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);padding:20px}
+    .sk-group{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);padding:20px;transition:border-color .2s var(--ease)}
+    .sk-group:hover{border-color:var(--line2)}
     .sk-title{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.15em;color:var(--kx);margin-bottom:14px}
     .sk-chips{display:flex;flex-wrap:wrap;gap:6px}
-    .sk-chip{font-size:.78rem;font-weight:500;color:var(--fg);background:var(--surf2);border:1px solid var(--line);padding:5px 11px;border-radius:8px}
+    .sk-chip{font-size:.78rem;font-weight:500;color:var(--fg);background:var(--surf2);border:1px solid var(--line);padding:5px 11px;border-radius:8px;transition:border-color .15s,color .15s}
+    .sk-chip:hover{border-color:var(--acc-line);color:var(--acc)}
 
     /* ── BLOG ─────────────────────────────────────────── */
     .blog-ph{text-align:center;padding:72px 24px;background:var(--surf);border:1px dashed var(--line2);border-radius:var(--r-l)}
@@ -169,14 +180,26 @@
 
     /* ── CONTACT ──────────────────────────────────────── */
     .ct-grid{display:flex;flex-wrap:wrap;gap:9px}
-    .ct-link{display:flex;align-items:center;gap:9px;padding:12px 18px;background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);color:var(--fg);font-weight:600;font-size:.84rem;transition:all .15s}
-    .ct-link:hover{border-color:var(--acc-line);color:var(--acc);opacity:1}
+    .ct-link{display:flex;align-items:center;gap:9px;padding:12px 18px;background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);color:var(--fg);font-weight:600;font-size:.84rem;transition:border-color .2s var(--ease),color .15s,transform .2s var(--ease),box-shadow .2s var(--ease)}
+    .ct-link:hover{border-color:var(--acc-line);color:var(--acc);transform:translateY(-2px);box-shadow:var(--shadow);opacity:1}
     .ct-link svg{width:16px;height:16px;flex-shrink:0;fill:currentColor}
 
     /* ── FOOTER ───────────────────────────────────────── */
     footer{border-top:1px solid var(--line);padding:28px 0;text-align:center}
     footer p{font-family:var(--mono);font-size:.65rem;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
     footer span{color:var(--acc)}
+
+    /* ── ANIMATIONS ───────────────────────────────────── */
+    @keyframes fadeArea{from{opacity:0}to{opacity:1}}
+    @keyframes sl{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
+    @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+    @keyframes pop{from{transform:scale(.4);opacity:0}to{transform:scale(1);opacity:1}}
+
+    /* scroll-triggered entrance */
+    [data-vis]{opacity:0;transform:translateY(20px);transition:opacity .65s var(--ease),transform .65s var(--ease);transition-delay:var(--d,0s)}
+    [data-vis].vis{opacity:1;transform:none}
+    [data-vis-sl]{opacity:0;transform:translateX(16px);transition:opacity .55s var(--ease),transform .55s var(--ease);transition-delay:var(--d,0s)}
+    [data-vis-sl].vis{opacity:1;transform:none}
 
     /* ── RESPONSIVE ───────────────────────────────────── */
     @media(max-width:720px){
@@ -192,6 +215,9 @@
   </style>
 </head>
 <body>
+
+  <!-- LOADER -->
+  <div id="loader" aria-hidden="true"><div class="loader-mark">IMK<span>.</span></div></div>
 
   <!-- NAV -->
   <nav>
@@ -250,12 +276,12 @@
     <section id="about">
       <div class="wrap" style="position:relative">
         <span class="sec-num" aria-hidden="true">01</span>
-        <div class="sh">
+        <div class="sh" data-vis>
           <div class="sh-eyebrow">Über mich</div>
-          <h2 class="sh-title">Hintergrund &amp; <span class="k">Profil</span></h2>
+          <h2 class="sh-title">Hintergrund &amp; <span class="k boxmark">Profil</span></h2>
         </div>
         <div class="about-grid">
-          <div class="about-text">
+          <div class="about-text" data-vis style="--d:.1s">
             <p>
               Ich bin Ilyas — aufgewachsen in Friedrichshafen am Bodensee,
               als Sohn einer deutsch-italienischen Familie zweisprachig groß geworden.
@@ -271,7 +297,7 @@
               und das MIT besucht.
             </p>
           </div>
-          <div class="kpi">
+          <div class="kpi" data-vis style="--d:.2s">
             <div class="kpi-cell">
               <div class="kpi-num">5+</div>
               <div class="kpi-lbl">Aktive Projekte</div>
@@ -299,14 +325,14 @@
     <section id="projects">
       <div class="wrap" style="position:relative">
         <span class="sec-num" aria-hidden="true">02</span>
-        <div class="sh">
+        <div class="sh" data-vis>
           <div class="sh-eyebrow">Projekte</div>
-          <h2 class="sh-title">Was ich <span class="k">baue</span></h2>
+          <h2 class="sh-title">Was ich <span class="k boxmark">baue</span></h2>
           <p class="sh-desc">Von der Idee bis zum fertigen Produkt.</p>
         </div>
         <div class="proj-grid">
 
-          <div class="proj-card">
+          <div class="proj-card" data-vis style="--d:.05s">
             <div class="proj-top">
               <div class="proj-mono">LK</div>
               <span class="proj-badge">Aktiv</span>
@@ -325,7 +351,7 @@
             </div>
           </div>
 
-          <div class="proj-card">
+          <div class="proj-card" data-vis style="--d:.12s">
             <div class="proj-top">
               <div class="proj-mono">PI</div>
               <span class="proj-badge">In Entwicklung</span>
@@ -343,7 +369,7 @@
             </div>
           </div>
 
-          <div class="proj-card">
+          <div class="proj-card" data-vis style="--d:.19s">
             <div class="proj-top">
               <div class="proj-mono">ST</div>
               <span class="proj-badge">In Entwicklung</span>
@@ -361,7 +387,7 @@
             </div>
           </div>
 
-          <div class="proj-card">
+          <div class="proj-card" data-vis style="--d:.26s">
             <div class="proj-top">
               <div class="proj-mono">IR</div>
               <span class="proj-badge">Aktiv</span>
@@ -378,7 +404,7 @@
             <a href="https://www.inf1nityracing.de" target="_blank" rel="noopener" class="proj-link">inf1nityracing.de</a>
           </div>
 
-          <div class="proj-card">
+          <div class="proj-card" data-vis style="--d:.33s">
             <div class="proj-top">
               <div class="proj-mono">KI</div>
               <span class="proj-badge soon">Coming Soon</span>
@@ -404,12 +430,12 @@
     <section id="experience">
       <div class="wrap" style="position:relative">
         <span class="sec-num" aria-hidden="true">03</span>
-        <div class="sh">
+        <div class="sh" data-vis>
           <div class="sh-eyebrow">Erfahrung</div>
-          <h2 class="sh-title">Praktika &amp; <span class="k">Programme</span></h2>
+          <h2 class="sh-title">Praktika &amp; <span class="k boxmark">Programme</span></h2>
         </div>
         <div class="exp-cols">
-          <div>
+          <div data-vis style="--d:.08s">
             <div class="col-title">Praktika</div>
             <div class="tl">
               <div class="tl-item">
@@ -432,7 +458,7 @@
               </div>
             </div>
           </div>
-          <div>
+          <div data-vis style="--d:.18s">
             <div class="col-title">Förderprogramme</div>
             <div class="tl">
               <div class="tl-item">
@@ -474,12 +500,12 @@
     <section id="education">
       <div class="wrap" style="position:relative">
         <span class="sec-num" aria-hidden="true">04</span>
-        <div class="sh">
+        <div class="sh" data-vis>
           <div class="sh-eyebrow">Ausbildung</div>
-          <h2 class="sh-title">Schulischer <span class="k">Werdegang</span></h2>
+          <h2 class="sh-title">Schulischer <span class="k boxmark">Werdegang</span></h2>
         </div>
         <div class="edu-grid">
-          <div class="edu-card">
+          <div class="edu-card" data-vis style="--d:.08s">
             <div class="edu-year">2025 — 2027</div>
             <div class="edu-school">Graf-Zeppelin-Gymnasium</div>
             <div class="edu-type">Allgemeine Hochschulreife (Abitur) · Friedrichshafen</div>
@@ -489,7 +515,7 @@
               <div class="edu-fact">Schülersprecher seit 2025</div>
             </div>
           </div>
-          <div class="edu-card">
+          <div class="edu-card" data-vis style="--d:.18s">
             <div class="edu-year">2019 — 2025</div>
             <div class="edu-school">Karl-Maybach-Gymnasium</div>
             <div class="edu-type">Bilingual G8 · Friedrichshafen</div>
@@ -510,55 +536,55 @@
     <section id="memberships">
       <div class="wrap" style="position:relative">
         <span class="sec-num" aria-hidden="true">05</span>
-        <div class="sh">
+        <div class="sh" data-vis>
           <div class="sh-eyebrow">Ehrenamt &amp; Auszeichnungen</div>
-          <h2 class="sh-title">Gesellschaftliches <span class="k">Engagement</span></h2>
+          <h2 class="sh-title">Gesellschaftliches <span class="k boxmark">Engagement</span></h2>
         </div>
         <div class="mem-grid">
-          <div class="mem-item">
+          <div class="mem-item" data-vis style="--d:.04s">
             <div class="mem-title">Schülersprecher</div>
             <div class="mem-role">Graf-Zeppelin-Gymnasium</div>
             <div class="mem-period">2025 — heute</div>
           </div>
-          <div class="mem-item">
+          <div class="mem-item" data-vis style="--d:.08s">
             <div class="mem-title">Schülersprecher</div>
             <div class="mem-role">Karl-Maybach-Gymnasium</div>
             <div class="mem-period">2024 — 2025</div>
           </div>
-          <div class="mem-item">
+          <div class="mem-item" data-vis style="--d:.12s">
             <div class="mem-title">Jugendparlament Friedrichshafen</div>
             <div class="mem-role">Vorstandsmitglied</div>
             <div class="mem-period">2023 — 2025</div>
           </div>
-          <div class="mem-item">
+          <div class="mem-item" data-vis style="--d:.16s">
             <div class="mem-title">Kreisjugendrat Bodenseekreis</div>
             <div class="mem-role">Mitglied</div>
             <div class="mem-period">2024 — 2025</div>
           </div>
-          <div class="mem-item">
+          <div class="mem-item" data-vis style="--d:.20s">
             <div class="mem-title">Junge Union Bodensee</div>
             <div class="mem-role">Beisitzender</div>
             <div class="mem-period">2024 — heute</div>
           </div>
-          <div class="mem-item">
+          <div class="mem-item" data-vis style="--d:.24s">
             <div class="mem-title">SFZ Südwürttemberg</div>
             <div class="mem-role">Betreuer</div>
             <div class="mem-period">2023 — heute</div>
           </div>
-          <div class="mem-item">
+          <div class="mem-item" data-vis style="--d:.28s">
             <div class="mem-title">Startup in School</div>
             <div class="mem-role">Sprecher · YFN &amp; Gründungsmagnet</div>
             <div class="mem-period">November 2025</div>
           </div>
-          <div class="mem-item">
+          <div class="mem-item" data-vis style="--d:.32s">
             <div class="mem-title">MINT-Tag</div>
             <div class="mem-role">Organisator</div>
             <div class="mem-period">2026</div>
           </div>
         </div>
-        <div class="col-title" style="margin-top:48px">Auszeichnungen</div>
+        <div class="col-title" style="margin-top:48px" data-vis>Auszeichnungen</div>
         <div class="aw-list">
-          <div class="aw-item">
+          <div class="aw-item" data-vis style="--d:.06s">
             <div class="aw-mark">01</div>
             <div class="aw-sep"></div>
             <div>
@@ -566,7 +592,7 @@
               <div class="aw-org">2025 &amp; 2026</div>
             </div>
           </div>
-          <div class="aw-item">
+          <div class="aw-item" data-vis style="--d:.12s">
             <div class="aw-mark">02</div>
             <div class="aw-sep"></div>
             <div>
@@ -574,7 +600,7 @@
               <div class="aw-org">Young Founders Network · Sommer 2025</div>
             </div>
           </div>
-          <div class="aw-item">
+          <div class="aw-item" data-vis style="--d:.18s">
             <div class="aw-mark">03</div>
             <div class="aw-sep"></div>
             <div>
@@ -592,12 +618,12 @@
     <section id="skills">
       <div class="wrap" style="position:relative">
         <span class="sec-num" aria-hidden="true">06</span>
-        <div class="sh">
+        <div class="sh" data-vis>
           <div class="sh-eyebrow">Skills</div>
-          <h2 class="sh-title">Tech <span class="k">Stack</span></h2>
+          <h2 class="sh-title">Tech <span class="k boxmark">Stack</span></h2>
         </div>
         <div class="sk-grid">
-          <div class="sk-group">
+          <div class="sk-group" data-vis style="--d:.04s">
             <div class="sk-title">Frontend</div>
             <div class="sk-chips">
               <span class="sk-chip">JavaScript</span>
@@ -607,7 +633,7 @@
               <span class="sk-chip">HTML &amp; CSS</span>
             </div>
           </div>
-          <div class="sk-group">
+          <div class="sk-group" data-vis style="--d:.10s">
             <div class="sk-title">Mobile</div>
             <div class="sk-chips">
               <span class="sk-chip">Flutter</span>
@@ -617,7 +643,7 @@
               <span class="sk-chip">Swift</span>
             </div>
           </div>
-          <div class="sk-group">
+          <div class="sk-group" data-vis style="--d:.16s">
             <div class="sk-title">Backend &amp; Datenbank</div>
             <div class="sk-chips">
               <span class="sk-chip">Supabase</span>
@@ -627,7 +653,7 @@
               <span class="sk-chip">Node.js</span>
             </div>
           </div>
-          <div class="sk-group">
+          <div class="sk-group" data-vis style="--d:.22s">
             <div class="sk-title">KI &amp; Tools</div>
             <div class="sk-chips">
               <span class="sk-chip">Claude API</span>
@@ -638,7 +664,7 @@
               <span class="sk-chip">ElevenLabs</span>
             </div>
           </div>
-          <div class="sk-group">
+          <div class="sk-group" data-vis style="--d:.28s">
             <div class="sk-title">Wissenschaft</div>
             <div class="sk-chips">
               <span class="sk-chip">MATLAB</span>
@@ -646,7 +672,7 @@
               <span class="sk-chip">CS50</span>
             </div>
           </div>
-          <div class="sk-group">
+          <div class="sk-group" data-vis style="--d:.34s">
             <div class="sk-title">Sprachen</div>
             <div class="sk-chips">
               <span class="sk-chip">Deutsch (Muttersprache)</span>
@@ -665,12 +691,12 @@
     <section id="blog">
       <div class="wrap" style="position:relative">
         <span class="sec-num" aria-hidden="true">07</span>
-        <div class="sh">
+        <div class="sh" data-vis>
           <div class="sh-eyebrow">Blog</div>
-          <h2 class="sh-title">Gedanken &amp; <span class="k">Einblicke</span></h2>
+          <h2 class="sh-title">Gedanken &amp; <span class="k boxmark">Einblicke</span></h2>
           <p class="sh-desc">Zu Unternehmertum, Technologie und Gesellschaft.</p>
         </div>
-        <div class="blog-ph">
+        <div class="blog-ph" data-vis style="--d:.1s">
           <p>Demnächst — Stay tuned</p>
         </div>
       </div>
@@ -682,21 +708,21 @@
     <section id="contact">
       <div class="wrap" style="position:relative">
         <span class="sec-num" aria-hidden="true">08</span>
-        <div class="sh">
+        <div class="sh" data-vis>
           <div class="sh-eyebrow">Kontakt</div>
-          <h2 class="sh-title">Lass uns <span class="k">reden</span></h2>
+          <h2 class="sh-title">Lass uns <span class="k boxmark">reden</span></h2>
           <p class="sh-desc">Offen für Praktika, Projekte und gute Gespräche.</p>
         </div>
         <div class="ct-grid">
-          <a href="mailto:ilyasmkocatas@gmail.com" class="ct-link">
+          <a href="mailto:ilyasmkocatas@gmail.com" class="ct-link" data-vis style="--d:.06s">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
             ilyasmkocatas@gmail.com
           </a>
-          <a href="https://linkedin.com/in/ilyasmkocatas" target="_blank" rel="noopener" class="ct-link">
+          <a href="https://linkedin.com/in/ilyasmkocatas" target="_blank" rel="noopener" class="ct-link" data-vis style="--d:.12s">
             <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
           </a>
-          <a href="https://github.com/ilyasmkocatas" target="_blank" rel="noopener" class="ct-link">
+          <a href="https://github.com/ilyasmkocatas" target="_blank" rel="noopener" class="ct-link" data-vis style="--d:.18s">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
             GitHub
           </a>
@@ -713,6 +739,7 @@
   </footer>
 
   <script>
+    /* ── Theme ───────────────────────────────────────── */
     const html=document.documentElement,toggle=document.getElementById('themeToggle'),icon=document.getElementById('themeIcon');
     const SUN='M12 2a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm0 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm7.071-12.071a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zM21 11h1a1 1 0 0 1 0 2h-1a1 1 0 0 1 0-2zM17.657 17.657a1 1 0 0 1 1.414 1.414l-.707.707a1 1 0 0 1-1.414-1.414l.707-.707zM13 20v1a1 1 0 0 1-2 0v-1a1 1 0 0 1 2 0zM6.343 17.657l.707.707a1 1 0 0 1-1.414 1.414l-.707-.707a1 1 0 0 1 1.414-1.414zM2 11h1a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2zM6.343 6.343l-.707-.707a1 1 0 0 1 1.414-1.414l.707.707a1 1 0 0 1-1.414 1.414z';
     const MOON='M21.75 15.07A10.003 10.003 0 0 1 8.93 2.25a10 10 0 1 0 12.82 12.82z';
@@ -724,6 +751,19 @@
       html.setAttribute('data-theme',next);localStorage.setItem('theme',next);
       icon.querySelector('path').setAttribute('d',next==='light'?SUN:MOON);
     });
+
+    /* ── Loader ──────────────────────────────────────── */
+    const loader=document.getElementById('loader');
+    requestAnimationFrame(()=>{
+      loader.classList.add('out');
+      setTimeout(()=>loader.remove(),500);
+    });
+
+    /* ── Scroll-entrance (IntersectionObserver) ──────── */
+    const io=new IntersectionObserver(es=>es.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}
+    }),{threshold:0.07,rootMargin:'0px 0px -32px 0px'});
+    document.querySelectorAll('[data-vis],[data-vis-sl]').forEach(el=>io.observe(el));
   </script>
 
 </body>
