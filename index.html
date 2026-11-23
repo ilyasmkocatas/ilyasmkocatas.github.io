@@ -3,179 +3,197 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ilyas M. Kocatas – Schüler, Unternehmer und Entwickler aus Friedrichshafen. Gründer von LockIt, PostIt, StampIt und Inf1nity Racing.">
+  <meta name="description" content="Ilyas M. Kocatas — Schüler, Unternehmer und Entwickler aus Friedrichshafen.">
   <title>Ilyas M. Kocatas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    /* ── Tokens ───────────────────────────────────────── */
     :root {
-      --radius-sm: 12px; --radius: 18px; --radius-lg: 26px;
-      --transition: 0.2s cubic-bezier(.16,1,.3,1); --max-w: 960px;
+      --mono:"IBM Plex Mono",ui-monospace,"SF Mono",monospace;
+      --sans:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+      --r-s:12px; --r-m:18px; --r-l:26px;
+      --ease:cubic-bezier(.16,1,.3,1);
+      --max:960px;
     }
     [data-theme="dark"] {
-      --bg:#000; --surface:#0B0C0D; --raised:#141517; --border:rgba(255,255,255,.1);
-      --fg:#F5F5F7; --muted:#9E9EA4; --dim:#8B8B93;
-      --accent:#FF4B25; --accent-2:#FF7A2E; --accent-muted:rgba(255,75,37,.12);
-      --tag-bg:rgba(255,75,37,.10); --tag-fg:#FF7A2E;
-      --glass:rgba(8,9,10,.82); --shadow:0 24px 60px rgba(0,0,0,.6); color-scheme:dark;
+      --bg:#000; --surf:#0B0C0D; --surf2:#141517;
+      --line:rgba(255,255,255,.1); --line2:rgba(255,255,255,.18);
+      --fg:#F5F5F7; --mid:#9E9EA4; --dim:#8B8B93;
+      --acc:#FF4B25; --acc2:#FF7A2E;
+      --acc-soft:rgba(255,75,37,.10); --acc-line:rgba(255,75,37,.28);
+      --glass:rgba(8,9,10,.82);
+      --shadow:0 24px 60px rgba(0,0,0,.55);
+      --kx:#B04A24;
+      color-scheme:dark;
     }
     [data-theme="light"] {
-      --bg:#FCFCFB; --surface:#FFFFFF; --raised:#F4F4F2; --border:rgba(0,0,0,.12);
-      --fg:#111113; --muted:#54545A; --dim:#6E6E77;
-      --accent:#FF4B25; --accent-2:#FF7A2E; --accent-muted:rgba(255,75,37,.10);
-      --tag-bg:rgba(255,75,37,.09); --tag-fg:#FF4B25;
-      --glass:rgba(252,252,251,.88); --shadow:0 18px 48px rgba(20,20,25,.13); color-scheme:light;
+      --bg:#FCFCFB; --surf:#FFFFFF; --surf2:#F4F4F2;
+      --line:rgba(0,0,0,.12); --line2:rgba(0,0,0,.2);
+      --fg:#111113; --mid:#54545A; --dim:#6E6E77;
+      --acc:#FF4B25; --acc2:#FF7A2E;
+      --acc-soft:rgba(255,75,37,.08); --acc-line:rgba(255,75,37,.22);
+      --glass:rgba(252,252,251,.88);
+      --shadow:0 18px 48px rgba(20,20,25,.12);
+      --kx:#B04A24;
+      color-scheme:light;
     }
+
+    /* ── Reset ────────────────────────────────────────── */
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6;-webkit-font-smoothing:antialiased}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{opacity:.8}
+    body{font-family:var(--sans);background:var(--bg);color:var(--fg);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--acc);text-decoration:none}
+    a:hover{opacity:.75}
     ul{list-style:none}
-    .container{max-width:var(--max-w);margin:0 auto;padding:0 24px}
-    section{padding:88px 0}
-    .divider{border:none;border-top:1px solid var(--border);margin:0}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(18px,3.4vw,44px)}
+    section{padding:96px 0}
+    .div{border:none;border-top:1px solid var(--line);margin:0}
 
-    /* NAV */
-    nav{position:sticky;top:0;z-index:100;background:var(--glass);border-bottom:1px solid var(--border);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
-    .nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .nav-logo{font-weight:800;font-size:1.1rem;color:var(--fg);letter-spacing:-.03em}
-    .nav-logo span{color:var(--accent)}
-    .nav-links{display:flex;align-items:center;gap:2px}
-    .nav-links a{color:var(--muted);font-size:.875rem;font-weight:500;padding:6px 11px;border-radius:var(--radius-sm);transition:color var(--transition),background var(--transition)}
-    .nav-links a:hover{color:var(--fg);background:var(--raised);opacity:1}
-    .btn-icon{width:36px;height:36px;border:1px solid var(--border);background:var(--surface);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);transition:all var(--transition)}
-    .btn-icon:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-muted)}
-    .btn-icon svg{width:16px;height:16px;fill:currentColor;pointer-events:none}
+    /* ── NAV ──────────────────────────────────────────── */
+    nav{position:sticky;top:0;z-index:100;background:var(--glass);border-bottom:1px solid var(--line);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    .nav-inner{max-width:var(--max);margin:0 auto;padding:0 clamp(18px,3.4vw,44px);height:56px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .nav-logo{font-family:var(--mono);font-weight:600;font-size:.85rem;color:var(--fg);letter-spacing:.08em;text-transform:uppercase}
+    .nav-logo span{color:var(--acc)}
+    .nav-links{display:flex;align-items:center;gap:0}
+    .nav-links a{color:var(--mid);font-size:.82rem;font-weight:500;padding:5px 10px;border-radius:var(--r-s);transition:color .15s,background .15s}
+    .nav-links a:hover{color:var(--fg);background:var(--surf2);opacity:1}
+    .btn-icon{width:34px;height:34px;border:1px solid var(--line);background:transparent;border-radius:var(--r-s);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--mid);transition:all .15s}
+    .btn-icon:hover{border-color:var(--acc);color:var(--acc);background:var(--acc-soft)}
+    .btn-icon svg{width:15px;height:15px;fill:currentColor;pointer-events:none}
 
-    /* HERO */
-    #home{padding-top:112px;padding-bottom:88px}
-    .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:22px}
-    .hero-eyebrow::before{content:'';width:20px;height:2px;background:var(--accent);display:block}
-    .hero-name{font-size:clamp(2.8rem,7vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-.04em;color:var(--fg);margin-bottom:20px}
-    .hero-name .accent{color:var(--accent)}
-    .hero-desc{font-size:1.1rem;color:var(--muted);max-width:540px;margin-bottom:32px;line-height:1.7}
-    .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
-    .tag{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;background:var(--tag-bg);color:var(--tag-fg);border:1px solid var(--accent-muted);border-radius:100px;font-size:.78rem;font-weight:600;white-space:nowrap}
+    /* ── HERO ─────────────────────────────────────────── */
+    #home{padding:128px 0 96px;position:relative;overflow:hidden}
+    .hero-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,75,37,.2) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 55% 100% at 100% 50%,black 10%,transparent 75%);mask-image:radial-gradient(ellipse 55% 100% at 100% 50%,black 10%,transparent 75%)}
+    .hero-eyebrow{font-family:var(--mono);font-size:.68rem;font-weight:400;text-transform:uppercase;letter-spacing:.18em;color:var(--kx);margin-bottom:28px}
+    .hero-name{font-size:clamp(3.2rem,8vw,5.8rem);font-weight:800;line-height:1.02;letter-spacing:-.05em;color:var(--fg);margin-bottom:24px}
+    .hero-name .k{color:var(--acc)}
+    .hero-desc{font-size:clamp(1rem,1.3vw,1.15rem);color:var(--mid);max-width:460px;margin-bottom:24px;line-height:1.72}
+    .hero-meta{font-family:var(--mono);font-size:.7rem;color:var(--dim);letter-spacing:.04em;margin-bottom:40px}
+    .hero-meta span{color:var(--acc);margin:0 6px}
     .hero-cta{display:flex;flex-wrap:wrap;gap:10px}
-    .btn-primary{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;background:var(--accent);color:#fff;font-weight:700;font-size:.88rem;border-radius:var(--radius);border:none;cursor:pointer;transition:opacity var(--transition),transform var(--transition)}
-    .btn-primary:hover{opacity:.9;transform:translateY(-1px)}
-    .btn-secondary{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;background:var(--surface);color:var(--fg);font-weight:600;font-size:.88rem;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition)}
-    .btn-secondary:hover{border-color:var(--accent);color:var(--accent);opacity:1}
+    .btn{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;font-weight:600;font-size:.85rem;border-radius:var(--r-m);cursor:pointer;transition:transform .15s var(--ease),opacity .15s,background .15s,border-color .15s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn.acc{background:var(--acc);color:#fff;border:1px solid var(--acc)}
+    .btn.acc:hover{background:var(--acc2);border-color:var(--acc2);opacity:1}
+    .btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+    .btn.ghost:hover{background:var(--surf2);border-color:var(--line2);opacity:1}
+    .btn svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
 
-    /* SECTION HEADERS */
-    .section-header{margin-bottom:52px}
-    .section-eyebrow{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:10px}
-    .section-title{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;letter-spacing:-.035em;line-height:1.1;color:var(--fg)}
-    .section-desc{font-size:.95rem;color:var(--muted);margin-top:10px;max-width:500px}
+    /* ── SECTION HEADERS ──────────────────────────────── */
+    .sh{margin-bottom:52px;position:relative}
+    .sh-eyebrow{font-family:var(--mono);font-size:.65rem;font-weight:400;text-transform:uppercase;letter-spacing:.18em;color:var(--kx);margin-bottom:12px}
+    .sh-title{font-size:clamp(1.9rem,3.8vw,2.7rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:var(--fg)}
+    .sh-title .k{color:var(--acc);font-weight:800}
+    .sh-desc{font-size:.9rem;color:var(--mid);margin-top:10px;max-width:480px;line-height:1.65}
+    .sec-num{font-family:var(--mono);font-size:5.5rem;font-weight:700;color:rgba(255,75,37,.045);letter-spacing:-.05em;line-height:1;position:absolute;top:-16px;right:0;user-select:none;pointer-events:none}
+    [data-theme="light"] .sec-num{color:rgba(255,75,37,.07)}
 
-    /* ABOUT */
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-    .about-text p{color:var(--muted);margin-bottom:14px;line-height:1.75;font-size:.95rem}
+    /* ── ABOUT ────────────────────────────────────────── */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+    .about-text p{color:var(--mid);margin-bottom:14px;line-height:1.78;font-size:.93rem}
     .about-text p:last-child{margin-bottom:0}
-    .about-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;transition:border-color var(--transition)}
-    .stat-card:hover{border-color:var(--accent)}
-    .stat-num{font-size:2rem;font-weight:800;color:var(--accent);letter-spacing:-.04em;line-height:1;margin-bottom:4px}
-    .stat-label{font-size:.78rem;color:var(--muted);font-weight:500}
+    .kpi{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .kpi-cell{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);padding:18px 20px;transition:border-color .15s}
+    .kpi-cell:hover{border-color:var(--acc-line)}
+    .kpi-num{font-family:var(--mono);font-size:1.9rem;font-weight:600;color:var(--acc);letter-spacing:-.04em;line-height:1;margin-bottom:5px}
+    .kpi-lbl{font-size:.72rem;color:var(--dim);letter-spacing:.02em}
 
-    /* PROJECTS */
-    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
-    .project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:26px;display:flex;flex-direction:column;gap:14px;transition:all var(--transition);position:relative;overflow:hidden}
-    .project-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-muted) 0%,transparent 65%);opacity:0;transition:opacity var(--transition)}
-    .project-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow)}
-    .project-card:hover::before{opacity:1}
-    .project-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-    .project-icon{width:46px;height:46px;background:var(--accent-muted);border:1px solid var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
-    .project-status{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:var(--tag-bg);padding:4px 10px;border-radius:100px}
-    .project-status::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent)}
-    .project-name{font-size:1.2rem;font-weight:800;color:var(--fg);letter-spacing:-.025em}
-    .project-desc{font-size:.86rem;color:var(--muted);line-height:1.65;flex:1}
-    .project-tags{display:flex;flex-wrap:wrap;gap:6px}
-    .project-tag{font-size:.7rem;font-weight:500;color:var(--muted);background:var(--raised);border:1px solid var(--border);padding:3px 9px;border-radius:100px}
-    .project-link{display:flex;align-items:center;gap:5px;font-size:.8rem;font-weight:600;color:var(--accent);margin-top:auto;padding-top:2px}
+    /* ── PROJECTS ─────────────────────────────────────── */
+    .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+    .proj-card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);padding:24px;display:flex;flex-direction:column;gap:16px;transition:border-color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease)}
+    .proj-card:hover{border-color:var(--acc-line);transform:translateY(-3px);box-shadow:var(--shadow)}
+    .proj-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+    .proj-mono{width:44px;height:44px;background:var(--acc-soft);border:1px solid var(--acc-line);border-radius:var(--r-s);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.7rem;font-weight:600;color:var(--acc);letter-spacing:.04em;flex-shrink:0}
+    .proj-badge{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);background:var(--acc-soft);border:1px solid var(--acc-line);padding:4px 9px;border-radius:100px}
+    .proj-badge.soon{color:var(--dim);background:var(--surf2);border-color:var(--line)}
+    .proj-name{font-size:1.1rem;font-weight:800;color:var(--fg);letter-spacing:-.025em}
+    .proj-desc{font-size:.84rem;color:var(--mid);line-height:1.65;flex:1}
+    .proj-tags{display:flex;flex-wrap:wrap;gap:5px}
+    .proj-tag{font-family:var(--mono);font-size:.65rem;color:var(--dim);background:var(--surf2);border:1px solid var(--line);padding:3px 8px;border-radius:6px}
+    .proj-link{font-family:var(--mono);font-size:.72rem;color:var(--acc);letter-spacing:.02em;margin-top:auto;padding-top:4px}
 
-    /* TIMELINE */
-    .exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-    .exp-col-title{font-size:1rem;font-weight:700;color:var(--fg);margin-bottom:24px;display:flex;align-items:center;gap:10px}
-    .exp-col-title::after{content:'';flex:1;height:1px;background:var(--border)}
-    .timeline{position:relative;padding-left:26px}
-    .timeline::before{content:'';position:absolute;left:0;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--accent),var(--dim));border-radius:2px}
-    .timeline-item{position:relative;padding-bottom:32px}
-    .timeline-item:last-child{padding-bottom:0}
-    .timeline-item::before{content:'';position:absolute;left:-30px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 0 2px var(--accent)}
-    .timeline-date{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:5px}
-    .timeline-title{font-size:1rem;font-weight:700;color:var(--fg);margin-bottom:2px}
-    .timeline-company{font-size:.85rem;color:var(--muted);margin-bottom:7px}
-    .timeline-desc{font-size:.82rem;color:var(--muted);line-height:1.6}
+    /* ── TIMELINE ─────────────────────────────────────── */
+    .exp-cols{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+    .col-title{font-family:var(--mono);font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;color:var(--kx);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+    .col-title::after{content:'';flex:1;height:1px;background:var(--line)}
+    .tl{position:relative;padding-left:22px}
+    .tl::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:linear-gradient(to bottom,var(--acc),var(--surf2));opacity:.6}
+    .tl-item{position:relative;padding-bottom:28px}
+    .tl-item:last-child{padding-bottom:0}
+    .tl-item::before{content:'';position:absolute;left:-26px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--acc);border:2px solid var(--bg)}
+    .tl-date{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--kx);margin-bottom:4px}
+    .tl-title{font-size:.95rem;font-weight:700;color:var(--fg);margin-bottom:2px}
+    .tl-org{font-size:.82rem;color:var(--mid);margin-bottom:7px}
+    .tl-desc{font-size:.8rem;color:var(--dim);line-height:1.6}
 
-    /* EDUCATION */
-    .edu-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:border-color var(--transition)}
-    .edu-card:hover{border-color:var(--accent)}
-    .edu-year{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:10px}
-    .edu-school{font-size:1.15rem;font-weight:800;color:var(--fg);margin-bottom:4px;letter-spacing:-.025em}
-    .edu-degree{font-size:.88rem;color:var(--muted);margin-bottom:16px}
-    .edu-details{display:flex;flex-direction:column;gap:6px}
-    .edu-detail{font-size:.82rem;color:var(--muted);display:flex;align-items:flex-start;gap:7px}
-    .edu-detail::before{content:'→';color:var(--accent);flex-shrink:0}
+    /* ── EDUCATION ────────────────────────────────────── */
+    .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .edu-card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-l);padding:28px;transition:border-color .15s}
+    .edu-card:hover{border-color:var(--acc-line)}
+    .edu-year{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--kx);margin-bottom:12px}
+    .edu-school{font-size:1.1rem;font-weight:800;color:var(--fg);margin-bottom:3px;letter-spacing:-.03em}
+    .edu-type{font-size:.85rem;color:var(--mid);margin-bottom:18px}
+    .edu-facts{display:flex;flex-direction:column;gap:7px}
+    .edu-fact{font-size:.8rem;color:var(--mid);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+    .edu-fact::before{content:'—';color:var(--dim);flex-shrink:0}
 
-    /* MEMBERSHIPS */
-    .memberships-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
-    .membership-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:3px;transition:border-color var(--transition)}
-    .membership-item:hover{border-color:var(--accent)}
-    .membership-title{font-size:.88rem;font-weight:700;color:var(--fg)}
-    .membership-role{font-size:.78rem;color:var(--muted)}
-    .membership-period{font-size:.7rem;color:var(--accent);font-weight:600;margin-top:4px}
+    /* ── MEMBERSHIPS ──────────────────────────────────── */
+    .mem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px}
+    .mem-item{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);padding:16px 18px;display:flex;flex-direction:column;gap:3px;transition:border-color .15s}
+    .mem-item:hover{border-color:var(--acc-line)}
+    .mem-title{font-size:.86rem;font-weight:700;color:var(--fg)}
+    .mem-role{font-size:.76rem;color:var(--mid)}
+    .mem-period{font-family:var(--mono);font-size:.62rem;color:var(--kx);letter-spacing:.04em;margin-top:5px}
 
-    /* AWARDS */
-    .awards-list{display:flex;flex-direction:column;gap:10px;margin-top:32px}
-    .award-item{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);transition:border-color var(--transition)}
-    .award-item:hover{border-color:var(--accent)}
-    .award-icon{font-size:1.4rem;flex-shrink:0}
-    .award-title{font-size:.92rem;font-weight:700;color:var(--fg)}
-    .award-org{font-size:.8rem;color:var(--muted)}
+    /* ── AWARDS ───────────────────────────────────────── */
+    .aw-list{display:flex;flex-direction:column;gap:9px;margin-top:28px}
+    .aw-item{display:flex;align-items:center;gap:16px;padding:14px 18px;background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);transition:border-color .15s}
+    .aw-item:hover{border-color:var(--acc-line)}
+    .aw-mark{font-family:var(--mono);font-size:.7rem;font-weight:600;color:var(--acc);min-width:28px;text-align:right;flex-shrink:0}
+    .aw-sep{width:1px;height:28px;background:var(--line);flex-shrink:0}
+    .aw-title{font-size:.9rem;font-weight:700;color:var(--fg)}
+    .aw-org{font-size:.78rem;color:var(--mid)}
 
-    /* SKILLS */
-    .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
-    .skill-group{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px}
-    .skill-group-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:14px}
-    .skill-chips{display:flex;flex-wrap:wrap;gap:7px}
-    .skill-chip{padding:5px 11px;background:var(--raised);border:1px solid var(--border);border-radius:100px;font-size:.78rem;font-weight:500;color:var(--fg)}
+    /* ── SKILLS ───────────────────────────────────────── */
+    .sk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+    .sk-group{background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);padding:20px}
+    .sk-title{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.15em;color:var(--kx);margin-bottom:14px}
+    .sk-chips{display:flex;flex-wrap:wrap;gap:6px}
+    .sk-chip{font-size:.78rem;font-weight:500;color:var(--fg);background:var(--surf2);border:1px solid var(--line);padding:5px 11px;border-radius:8px}
 
-    /* BLOG */
-    .blog-placeholder{text-align:center;padding:72px 24px;background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius-lg)}
-    .blog-placeholder h3{font-size:1.2rem;font-weight:700;color:var(--muted);margin-bottom:8px}
-    .blog-placeholder p{color:var(--dim);font-size:.88rem}
+    /* ── BLOG ─────────────────────────────────────────── */
+    .blog-ph{text-align:center;padding:72px 24px;background:var(--surf);border:1px dashed var(--line2);border-radius:var(--r-l)}
+    .blog-ph p{font-family:var(--mono);font-size:.72rem;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
 
-    /* CONTACT */
-    .contact-grid{display:flex;flex-wrap:wrap;gap:10px}
-    .contact-link{display:flex;align-items:center;gap:10px;padding:13px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);color:var(--fg);font-weight:600;font-size:.86rem;transition:all var(--transition)}
-    .contact-link:hover{border-color:var(--accent);color:var(--accent);opacity:1}
-    .contact-link svg{width:17px;height:17px;flex-shrink:0;fill:currentColor}
+    /* ── CONTACT ──────────────────────────────────────── */
+    .ct-grid{display:flex;flex-wrap:wrap;gap:9px}
+    .ct-link{display:flex;align-items:center;gap:9px;padding:12px 18px;background:var(--surf);border:1px solid var(--line);border-radius:var(--r-m);color:var(--fg);font-weight:600;font-size:.84rem;transition:all .15s}
+    .ct-link:hover{border-color:var(--acc-line);color:var(--acc);opacity:1}
+    .ct-link svg{width:16px;height:16px;flex-shrink:0;fill:currentColor}
 
-    /* FOOTER */
-    footer{border-top:1px solid var(--border);padding:28px 0;text-align:center;color:var(--dim);font-size:.8rem}
-    footer span{color:var(--accent)}
+    /* ── FOOTER ───────────────────────────────────────── */
+    footer{border-top:1px solid var(--line);padding:28px 0;text-align:center}
+    footer p{font-family:var(--mono);font-size:.65rem;color:var(--dim);letter-spacing:.06em;text-transform:uppercase}
+    footer span{color:var(--acc)}
 
-    /* RESPONSIVE */
-    @media(max-width:768px){
-      section{padding:60px 0}
-      #home{padding-top:72px;padding-bottom:60px}
+    /* ── RESPONSIVE ───────────────────────────────────── */
+    @media(max-width:720px){
+      section{padding:64px 0}
+      #home{padding:88px 0 64px}
       .nav-links{display:none}
-      .about-grid,.exp-grid,.edu-cards{grid-template-columns:1fr;gap:28px}
-      .hero-name{font-size:2.4rem}
-      .projects-grid{grid-template-columns:1fr}
+      .about-grid,.exp-cols,.edu-grid{grid-template-columns:1fr;gap:28px}
+      .hero-name{font-size:2.9rem}
+      .proj-grid{grid-template-columns:1fr}
+      .sec-num{font-size:3.5rem}
     }
-    @media(max-width:480px){
-      .container{padding:0 16px}
-      .about-stats{grid-template-columns:1fr 1fr}
-    }
+    @media(max-width:480px){.wrap{padding:0 18px}.kpi{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
     <div class="nav-inner">
       <a href="#home" class="nav-logo">IMK<span>.</span></a>
@@ -189,9 +207,7 @@
         <a href="#contact">Kontakt</a>
       </div>
       <button class="btn-icon" id="themeToggle" aria-label="Theme wechseln">
-        <svg id="themeIcon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M21.75 15.07A10.003 10.003 0 0 1 8.93 2.25a10 10 0 1 0 12.82 12.82z"/>
-        </svg>
+        <svg id="themeIcon" viewBox="0 0 24 24"><path d="M21.75 15.07A10.003 10.003 0 0 1 8.93 2.25a10 10 0 1 0 12.82 12.82z"/></svg>
       </button>
     </div>
   </nav>
@@ -200,203 +216,181 @@
 
     <!-- HERO -->
     <section id="home">
-      <div class="container">
-        <div class="hero-eyebrow">Friedrichshafen, Baden-Württemberg</div>
-        <h1 class="hero-name">Ilyas M.<br><span class="accent">Kocatas</span></h1>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="hero-eyebrow">Portfolio — Friedrichshafen, Baden-Württemberg</div>
+        <h1 class="hero-name">Ilyas M.<br><span class="k">Kocatas</span></h1>
         <p class="hero-desc">
-          Schüler, Unternehmer und Entwickler mit einem Faible für Produkte, die wirklich benutzt werden.
-          Ich gründe, baue und verprobe — von der Idee bis zum Launch.
+          Schüler, Unternehmer und Entwickler mit einem Faible für Produkte,
+          die wirklich benutzt werden. Von der Idee bis zum Launch.
         </p>
-        <div class="hero-tags">
-          <span class="tag">🇩🇪 Deutsch</span>
-          <span class="tag">🇮🇹 Italiano</span>
-          <span class="tag">🇺🇸 English C1</span>
-          <span class="tag">⚡ Abitur 2027</span>
-          <span class="tag">🚀 YEEP Scholar</span>
-        </div>
+        <p class="hero-meta">
+          Abitur 2027<span>·</span>YEEP Scholar<span>·</span>Deutsch / Italiano<span>·</span>English C1
+        </p>
         <div class="hero-cta">
-          <a href="mailto:ilyasmkocatas@gmail.com" class="btn-primary">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <a href="mailto:ilyasmkocatas@gmail.com" class="btn acc">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
             Schreib mir
           </a>
-          <a href="https://github.com/ilyasmkocatas" target="_blank" rel="noopener" class="btn-secondary">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          <a href="https://github.com/ilyasmkocatas" target="_blank" rel="noopener" class="btn ghost">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
             GitHub
           </a>
-          <a href="https://linkedin.com/in/ilyasmkocatas" target="_blank" rel="noopener" class="btn-secondary">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <a href="https://linkedin.com/in/ilyasmkocatas" target="_blank" rel="noopener" class="btn ghost">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
           </a>
         </div>
       </div>
     </section>
 
-    <hr class="divider">
+    <hr class="div">
 
     <!-- ABOUT -->
     <section id="about">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Über mich</div>
-          <h2 class="section-title">Hintergrund &amp; Profil</h2>
+      <div class="wrap" style="position:relative">
+        <span class="sec-num" aria-hidden="true">01</span>
+        <div class="sh">
+          <div class="sh-eyebrow">Über mich</div>
+          <h2 class="sh-title">Hintergrund &amp; <span class="k">Profil</span></h2>
         </div>
         <div class="about-grid">
           <div class="about-text">
             <p>
-              Ich bin Ilyas — aufgewachsen in Friedrichshafen am Bodensee, als Sohn einer
-              deutsch-italienischen Familie zweisprachig groß geworden. Die Welt mit zwei
-              Perspektiven zu sehen ist für mich selbstverständlich.
+              Ich bin Ilyas — aufgewachsen in Friedrichshafen am Bodensee,
+              als Sohn einer deutsch-italienischen Familie zweisprachig groß geworden.
             </p>
             <p>
-              Meine Passion ist es, echte Probleme mit Technologie zu lösen. Ich gründe Projekte,
-              die ich selbst benutzen würde — von NFC-Focus-Apps über digitale Loyalitätskarten
-              bis hin zu KI-gestützten Content-Tools.
+              Meine Passion ist es, echte Probleme mit Technologie zu lösen.
+              Ich gründe Projekte, die ich selbst benutzen würde — von NFC-Focus-Apps
+              über digitale Loyalitätskarten bis hin zu KI-gestützten Content-Tools.
             </p>
             <p>
-              Neben dem Unternehmertum engagiere ich mich politisch (Jugendparlament,
-              Junge Union) und wissenschaftlich (Schülerforschungszentrum, STEM Racing).
-              Im Sommer 2025 habe ich Google HQ, Waymo und das MIT besucht.
+              Neben dem Unternehmertum engagiere ich mich politisch und
+              wissenschaftlich. Im Sommer 2025 habe ich Google HQ, Waymo
+              und das MIT besucht.
             </p>
           </div>
-          <div class="about-stats">
-            <div class="stat-card">
-              <div class="stat-num">5+</div>
-              <div class="stat-label">Aktive Projekte</div>
+          <div class="kpi">
+            <div class="kpi-cell">
+              <div class="kpi-num">5+</div>
+              <div class="kpi-lbl">Aktive Projekte</div>
             </div>
-            <div class="stat-card">
-              <div class="stat-num">3</div>
-              <div class="stat-label">Sprachen</div>
+            <div class="kpi-cell">
+              <div class="kpi-num">3</div>
+              <div class="kpi-lbl">Sprachen</div>
             </div>
-            <div class="stat-card">
-              <div class="stat-num">1,6</div>
-              <div class="stat-label">Notendurchschnitt</div>
+            <div class="kpi-cell">
+              <div class="kpi-num">1,6</div>
+              <div class="kpi-lbl">Notendurchschnitt</div>
             </div>
-            <div class="stat-card">
-              <div class="stat-num">3+</div>
-              <div class="stat-label">Förderprogramme</div>
+            <div class="kpi-cell">
+              <div class="kpi-num">3+</div>
+              <div class="kpi-lbl">Förderprogramme</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <hr class="divider">
+    <hr class="div">
 
     <!-- PROJECTS -->
     <section id="projects">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Projekte</div>
-          <h2 class="section-title">Was ich baue</h2>
-          <p class="section-desc">Von der Idee bis zum fertigen Produkt — meine eigenen Projekte.</p>
+      <div class="wrap" style="position:relative">
+        <span class="sec-num" aria-hidden="true">02</span>
+        <div class="sh">
+          <div class="sh-eyebrow">Projekte</div>
+          <h2 class="sh-title">Was ich <span class="k">baue</span></h2>
+          <p class="sh-desc">Von der Idee bis zum fertigen Produkt.</p>
         </div>
-        <div class="projects-grid">
+        <div class="proj-grid">
 
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">🔒</div>
-              <span class="project-status">Aktiv</span>
+          <div class="proj-card">
+            <div class="proj-top">
+              <div class="proj-mono">LK</div>
+              <span class="proj-badge">Aktiv</span>
             </div>
             <div>
-              <div class="project-name">LockIt</div>
-              <div class="project-desc">
-                NFC-gestützte Fokus-App: Handy auf ein NFC-Tag legen, App sperrt Social Media und
-                Ablenkungen. Physisches Ritual für digitale Disziplin — für iOS und Android.
-              </div>
+              <div class="proj-name">LockIt</div>
+              <div class="proj-desc">NFC-gestützte Fokus-App: Handy auf ein NFC-Tag legen, App sperrt Social Media und Ablenkungen. Physisches Ritual für digitale Disziplin — iOS und Android.</div>
             </div>
-            <div class="project-tags">
-              <span class="project-tag">Flutter</span>
-              <span class="project-tag">Dart</span>
-              <span class="project-tag">Kotlin</span>
-              <span class="project-tag">Swift</span>
-              <span class="project-tag">Firebase</span>
-              <span class="project-tag">NFC</span>
+            <div class="proj-tags">
+              <span class="proj-tag">Flutter</span>
+              <span class="proj-tag">Dart</span>
+              <span class="proj-tag">Kotlin</span>
+              <span class="proj-tag">Swift</span>
+              <span class="proj-tag">Firebase</span>
+              <span class="proj-tag">NFC</span>
             </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">📱</div>
-              <span class="project-status">In Entwicklung</span>
+          <div class="proj-card">
+            <div class="proj-top">
+              <div class="proj-mono">PI</div>
+              <span class="proj-badge">In Entwicklung</span>
             </div>
             <div>
-              <div class="project-name">PostIt</div>
-              <div class="project-desc">
-                KI-gestützte Plattform für Social-Media-Content und Scheduling.
-                Viral Feed, Deep Boost, Creator Tracking und Voice-to-Content —
-                für LinkedIn, X und Threads.
-              </div>
+              <div class="proj-name">PostIt</div>
+              <div class="proj-desc">KI-gestützte Plattform für Social-Media-Content und Scheduling. Viral Feed, Deep Boost, Creator Tracking und Voice-to-Content für LinkedIn, X und Threads.</div>
             </div>
-            <div class="project-tags">
-              <span class="project-tag">Next.js</span>
-              <span class="project-tag">React</span>
-              <span class="project-tag">Supabase</span>
-              <span class="project-tag">Claude API</span>
-              <span class="project-tag">ElevenLabs</span>
+            <div class="proj-tags">
+              <span class="proj-tag">Next.js</span>
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">Supabase</span>
+              <span class="proj-tag">Claude API</span>
+              <span class="proj-tag">ElevenLabs</span>
             </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">🎫</div>
-              <span class="project-status">In Entwicklung</span>
+          <div class="proj-card">
+            <div class="proj-top">
+              <div class="proj-mono">ST</div>
+              <span class="proj-badge">In Entwicklung</span>
             </div>
             <div>
-              <div class="project-name">StampIt</div>
-              <div class="project-desc">
-                Digitale Loyalitätskarten für lokale Unternehmen — direkt in Apple Wallet
-                und Google Wallet. Kein App-Download für Kunden nötig. B2B SaaS für den
-                DACH-Markt mit QR-Stempel, Tier-System und Google-Review-Loop.
-              </div>
+              <div class="proj-name">StampIt</div>
+              <div class="proj-desc">Digitale Loyalitätskarten direkt in Apple Wallet und Google Wallet. Kein App-Download nötig. B2B SaaS für den DACH-Markt mit QR-Stempel, Tier-System und Google-Review-Loop.</div>
             </div>
-            <div class="project-tags">
-              <span class="project-tag">Next.js 15</span>
-              <span class="project-tag">Supabase</span>
-              <span class="project-tag">Stripe</span>
-              <span class="project-tag">pkpass</span>
-              <span class="project-tag">Web NFC</span>
+            <div class="proj-tags">
+              <span class="proj-tag">Next.js 15</span>
+              <span class="proj-tag">Supabase</span>
+              <span class="proj-tag">Stripe</span>
+              <span class="proj-tag">pkpass</span>
+              <span class="proj-tag">Web NFC</span>
             </div>
           </div>
 
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">🏎️</div>
-              <span class="project-status">Aktiv</span>
+          <div class="proj-card">
+            <div class="proj-top">
+              <div class="proj-mono">IR</div>
+              <span class="proj-badge">Aktiv</span>
             </div>
             <div>
-              <div class="project-name">Inf1nity Racing</div>
-              <div class="project-desc">
-                STEM-Racing-Team aus Friedrichshafen, das ich 2023 am Schülerforschungszentrum
-                mitgegründet habe. 10+ Mitglieder, CO₂-betriebene Miniatur-F1-Autos,
-                20m-Rennstrecke — 2× Wettbewerb (2023 &amp; 2024).
-              </div>
+              <div class="proj-name">Inf1nity Racing</div>
+              <div class="proj-desc">STEM-Racing-Team aus Friedrichshafen, 2023 am SFZ mitgegründet. 10+ Mitglieder, CO₂-betriebene Miniatur-F1-Autos, 20m-Rennstrecke — 2× Wettbewerb (2023 &amp; 2024).</div>
             </div>
-            <div class="project-tags">
-              <span class="project-tag">STEM Racing</span>
-              <span class="project-tag">Engineering</span>
-              <span class="project-tag">Teamleitung</span>
+            <div class="proj-tags">
+              <span class="proj-tag">STEM Racing</span>
+              <span class="proj-tag">Engineering</span>
+              <span class="proj-tag">Teamleitung</span>
             </div>
-            <a href="https://www.inf1nityracing.de" target="_blank" rel="noopener" class="project-link">
-              inf1nityracing.de →
-            </a>
+            <a href="https://www.inf1nityracing.de" target="_blank" rel="noopener" class="proj-link">inf1nityracing.de</a>
           </div>
 
-          <div class="project-card">
-            <div class="project-header">
-              <div class="project-icon">🏛️</div>
-              <span class="project-status" style="color:var(--muted);background:var(--raised);border:1px solid var(--border)">Coming Soon</span>
+          <div class="proj-card">
+            <div class="proj-top">
+              <div class="proj-mono">KI</div>
+              <span class="proj-badge soon">Coming Soon</span>
             </div>
             <div>
-              <div class="project-name">Kocatas Institute e.V.</div>
-              <div class="project-desc">
-                Gemeinnützige Initiative zur Förderung junger Gründer und Innovatoren.
-                Vernetzung, Bildung und Ressourcen für die nächste Generation.
-              </div>
+              <div class="proj-name">Kocatas Institute e.V.</div>
+              <div class="proj-desc">Gemeinnützige Initiative zur Förderung junger Gründer und Innovatoren. Vernetzung, Bildung und Ressourcen für die nächste Generation.</div>
             </div>
-            <div class="project-tags">
-              <span class="project-tag">Non-Profit</span>
-              <span class="project-tag">e.V.</span>
-              <span class="project-tag">Bildung &amp; Innovation</span>
+            <div class="proj-tags">
+              <span class="proj-tag">Non-Profit</span>
+              <span class="proj-tag">e.V.</span>
+              <span class="proj-tag">Bildung</span>
             </div>
           </div>
 
@@ -404,68 +398,69 @@
       </div>
     </section>
 
-    <hr class="divider">
+    <hr class="div">
 
     <!-- EXPERIENCE -->
     <section id="experience">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Erfahrung</div>
-          <h2 class="section-title">Praktika &amp; Programme</h2>
+      <div class="wrap" style="position:relative">
+        <span class="sec-num" aria-hidden="true">03</span>
+        <div class="sh">
+          <div class="sh-eyebrow">Erfahrung</div>
+          <h2 class="sh-title">Praktika &amp; <span class="k">Programme</span></h2>
         </div>
-        <div class="exp-grid">
+        <div class="exp-cols">
           <div>
-            <div class="exp-col-title">Praktika</div>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-date">Februar 2026</div>
-                <div class="timeline-title">Praktikum — Simulationsabteilung</div>
-                <div class="timeline-company">ZF Friedrichshafen AG · Friedrichshafen</div>
-                <div class="timeline-desc">Einblick in MATLAB/Simulink-basierte Fahrzeugsimulation im Automotive-Kontext.</div>
+            <div class="col-title">Praktika</div>
+            <div class="tl">
+              <div class="tl-item">
+                <div class="tl-date">Februar 2026</div>
+                <div class="tl-title">Praktikum — Simulationsabteilung</div>
+                <div class="tl-org">ZF Friedrichshafen AG</div>
+                <div class="tl-desc">MATLAB/Simulink-basierte Fahrzeugsimulation im Automotive-Kontext.</div>
               </div>
-              <div class="timeline-item">
-                <div class="timeline-date">März 2024</div>
-                <div class="timeline-title">BOGY-Praktikum</div>
-                <div class="timeline-company">Deutscher Bundestag · Berlin</div>
-                <div class="timeline-desc">Praktikum beim MdB Andreas Mayer-Lay — Politik und parlamentarische Arbeit hautnah.</div>
+              <div class="tl-item">
+                <div class="tl-date">März 2024</div>
+                <div class="tl-title">BOGY-Praktikum</div>
+                <div class="tl-org">Deutscher Bundestag, Berlin</div>
+                <div class="tl-desc">Praktikum beim MdB Andreas Mayer-Lay — Politik und parlamentarische Arbeit hautnah.</div>
               </div>
-              <div class="timeline-item">
-                <div class="timeline-date">2023</div>
-                <div class="timeline-title">Sozialpraktikum</div>
-                <div class="timeline-company">Klinikum Friedrichshafen</div>
-                <div class="timeline-desc">Einblick in den klinischen Alltag und soziale Berufsfelder.</div>
+              <div class="tl-item">
+                <div class="tl-date">2023</div>
+                <div class="tl-title">Sozialpraktikum</div>
+                <div class="tl-org">Klinikum Friedrichshafen</div>
+                <div class="tl-desc">Einblick in den klinischen Alltag.</div>
               </div>
             </div>
           </div>
           <div>
-            <div class="exp-col-title">Förderprogramme</div>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-date">2025 – heute</div>
-                <div class="timeline-title">Young Entrepreneur Excellence Program</div>
-                <div class="timeline-company">Uni Stuttgart &amp; HdM Stuttgart</div>
-                <div class="timeline-desc">Exklusives Förderprogramm für unternehmerisch denkende Schüler (YEEP).</div>
+            <div class="col-title">Förderprogramme</div>
+            <div class="tl">
+              <div class="tl-item">
+                <div class="tl-date">2025 — heute</div>
+                <div class="tl-title">Young Entrepreneur Excellence Program</div>
+                <div class="tl-org">Uni Stuttgart &amp; HdM Stuttgart (YEEP)</div>
+                <div class="tl-desc">Exklusives Förderprogramm für unternehmerisch denkende Schüler.</div>
               </div>
-              <div class="timeline-item">
-                <div class="timeline-date">2025 – heute</div>
-                <div class="timeline-title">Young Founders Network (YFN)</div>
-                <div class="timeline-company">Young Founders Network</div>
-                <div class="timeline-desc">Community junger Gründer — Networking, Mentoring, Hackathons.</div>
+              <div class="tl-item">
+                <div class="tl-date">2025 — heute</div>
+                <div class="tl-title">Young Founders Network (YFN)</div>
+                <div class="tl-org">Young Founders Network</div>
+                <div class="tl-desc">Community junger Gründer — Networking, Mentoring, Hackathons.</div>
               </div>
-              <div class="timeline-item">
-                <div class="timeline-date">2025 – heute</div>
-                <div class="timeline-title">Mitglied</div>
-                <div class="timeline-company">Gründungsmagnet e.V.</div>
-                <div class="timeline-desc">Startup-Netzwerk und Gründergemeinschaft.</div>
+              <div class="tl-item">
+                <div class="tl-date">2025 — heute</div>
+                <div class="tl-title">Mitglied</div>
+                <div class="tl-org">Gründungsmagnet e.V.</div>
+                <div class="tl-desc">Startup-Netzwerk und Gründergemeinschaft.</div>
               </div>
             </div>
-            <div class="exp-col-title" style="margin-top:40px">International</div>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-date">Sommer 2025</div>
-                <div class="timeline-title">USA — Tech &amp; Innovation</div>
-                <div class="timeline-company">Michigan · Silicon Valley · Boston</div>
-                <div class="timeline-desc">ZF Michigan, Google HQ &amp; Waymo in Silicon Valley, MIT in Boston.</div>
+            <div class="col-title" style="margin-top:36px">International</div>
+            <div class="tl">
+              <div class="tl-item">
+                <div class="tl-date">Sommer 2025</div>
+                <div class="tl-title">USA — Tech &amp; Innovation</div>
+                <div class="tl-org">Michigan · Silicon Valley · Boston</div>
+                <div class="tl-desc">ZF Michigan, Google HQ &amp; Waymo in Silicon Valley, MIT in Boston.</div>
               </div>
             </div>
           </div>
@@ -473,228 +468,235 @@
       </div>
     </section>
 
-    <hr class="divider">
+    <hr class="div">
 
     <!-- EDUCATION -->
     <section id="education">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Ausbildung</div>
-          <h2 class="section-title">Schulischer Werdegang</h2>
+      <div class="wrap" style="position:relative">
+        <span class="sec-num" aria-hidden="true">04</span>
+        <div class="sh">
+          <div class="sh-eyebrow">Ausbildung</div>
+          <h2 class="sh-title">Schulischer <span class="k">Werdegang</span></h2>
         </div>
-        <div class="edu-cards">
+        <div class="edu-grid">
           <div class="edu-card">
-            <div class="edu-year">2025 – 2027</div>
+            <div class="edu-year">2025 — 2027</div>
             <div class="edu-school">Graf-Zeppelin-Gymnasium</div>
-            <div class="edu-degree">Allgemeine Hochschulreife (Abitur) · Friedrichshafen</div>
-            <div class="edu-details">
-              <div class="edu-detail">Leistungskurse: Mathematik, Wirtschaft, Englisch</div>
-              <div class="edu-detail">Notendurchschnitt: 1,6</div>
-              <div class="edu-detail">Schülersprecher seit 2025</div>
+            <div class="edu-type">Allgemeine Hochschulreife (Abitur) · Friedrichshafen</div>
+            <div class="edu-facts">
+              <div class="edu-fact">Leistungskurse: Mathematik, Wirtschaft, Englisch</div>
+              <div class="edu-fact">Notendurchschnitt: 1,6</div>
+              <div class="edu-fact">Schülersprecher seit 2025</div>
             </div>
           </div>
           <div class="edu-card">
-            <div class="edu-year">2019 – 2025</div>
+            <div class="edu-year">2019 — 2025</div>
             <div class="edu-school">Karl-Maybach-Gymnasium</div>
-            <div class="edu-degree">Bilingual G8 · Friedrichshafen</div>
-            <div class="edu-details">
-              <div class="edu-detail">Bilingual Certificate (Englisch)</div>
-              <div class="edu-detail">Latinum</div>
-              <div class="edu-detail">LKs: Physik, Wirtschaft, Englisch</div>
-              <div class="edu-detail">Schülersprecher 2024–2025</div>
+            <div class="edu-type">Bilingual G8 · Friedrichshafen</div>
+            <div class="edu-facts">
+              <div class="edu-fact">Bilingual Certificate (Englisch)</div>
+              <div class="edu-fact">Latinum</div>
+              <div class="edu-fact">LKs: Physik, Wirtschaft, Englisch</div>
+              <div class="edu-fact">Schülersprecher 2024–2025</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <hr class="divider">
+    <hr class="div">
 
     <!-- MEMBERSHIPS & AWARDS -->
     <section id="memberships">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Ehrenamt &amp; Auszeichnungen</div>
-          <h2 class="section-title">Gesellschaftliches Engagement</h2>
+      <div class="wrap" style="position:relative">
+        <span class="sec-num" aria-hidden="true">05</span>
+        <div class="sh">
+          <div class="sh-eyebrow">Ehrenamt &amp; Auszeichnungen</div>
+          <h2 class="sh-title">Gesellschaftliches <span class="k">Engagement</span></h2>
         </div>
-        <div class="memberships-grid">
-          <div class="membership-item">
-            <div class="membership-title">Schülersprecher</div>
-            <div class="membership-role">Graf-Zeppelin-Gymnasium</div>
-            <div class="membership-period">2025 – heute</div>
+        <div class="mem-grid">
+          <div class="mem-item">
+            <div class="mem-title">Schülersprecher</div>
+            <div class="mem-role">Graf-Zeppelin-Gymnasium</div>
+            <div class="mem-period">2025 — heute</div>
           </div>
-          <div class="membership-item">
-            <div class="membership-title">Schülersprecher</div>
-            <div class="membership-role">Karl-Maybach-Gymnasium</div>
-            <div class="membership-period">2024 – 2025</div>
+          <div class="mem-item">
+            <div class="mem-title">Schülersprecher</div>
+            <div class="mem-role">Karl-Maybach-Gymnasium</div>
+            <div class="mem-period">2024 — 2025</div>
           </div>
-          <div class="membership-item">
-            <div class="membership-title">Jugendparlament Friedrichshafen</div>
-            <div class="membership-role">Vorstandsmitglied</div>
-            <div class="membership-period">2023 – 2025</div>
+          <div class="mem-item">
+            <div class="mem-title">Jugendparlament Friedrichshafen</div>
+            <div class="mem-role">Vorstandsmitglied</div>
+            <div class="mem-period">2023 — 2025</div>
           </div>
-          <div class="membership-item">
-            <div class="membership-title">Kreisjugendrat Bodenseekreis</div>
-            <div class="membership-role">Mitglied</div>
-            <div class="membership-period">2024 – 2025</div>
+          <div class="mem-item">
+            <div class="mem-title">Kreisjugendrat Bodenseekreis</div>
+            <div class="mem-role">Mitglied</div>
+            <div class="mem-period">2024 — 2025</div>
           </div>
-          <div class="membership-item">
-            <div class="membership-title">Junge Union Bodensee</div>
-            <div class="membership-role">Beisitzender</div>
-            <div class="membership-period">2024 – heute</div>
+          <div class="mem-item">
+            <div class="mem-title">Junge Union Bodensee</div>
+            <div class="mem-role">Beisitzender</div>
+            <div class="mem-period">2024 — heute</div>
           </div>
-          <div class="membership-item">
-            <div class="membership-title">SFZ Südwürttemberg</div>
-            <div class="membership-role">Betreuer</div>
-            <div class="membership-period">2023 – heute</div>
+          <div class="mem-item">
+            <div class="mem-title">SFZ Südwürttemberg</div>
+            <div class="mem-role">Betreuer</div>
+            <div class="mem-period">2023 — heute</div>
           </div>
-          <div class="membership-item">
-            <div class="membership-title">Startup in School</div>
-            <div class="membership-role">Sprecher · YFN &amp; Gründungsmagnet</div>
-            <div class="membership-period">November 2025</div>
+          <div class="mem-item">
+            <div class="mem-title">Startup in School</div>
+            <div class="mem-role">Sprecher · YFN &amp; Gründungsmagnet</div>
+            <div class="mem-period">November 2025</div>
           </div>
-          <div class="membership-item">
-            <div class="membership-title">MINT-Tag</div>
-            <div class="membership-role">Organisator</div>
-            <div class="membership-period">2026</div>
+          <div class="mem-item">
+            <div class="mem-title">MINT-Tag</div>
+            <div class="mem-role">Organisator</div>
+            <div class="mem-period">2026</div>
           </div>
         </div>
-        <div class="exp-col-title" style="margin-top:48px">Auszeichnungen</div>
-        <div class="awards-list">
-          <div class="award-item">
-            <div class="award-icon">🏆</div>
+        <div class="col-title" style="margin-top:48px">Auszeichnungen</div>
+        <div class="aw-list">
+          <div class="aw-item">
+            <div class="aw-mark">01</div>
+            <div class="aw-sep"></div>
             <div>
-              <div class="award-title">Young Speaker Contest — 2× Gewinner</div>
-              <div class="award-org">2025 &amp; 2026</div>
+              <div class="aw-title">Young Speaker Contest — 2× Gewinner</div>
+              <div class="aw-org">2025 &amp; 2026</div>
             </div>
           </div>
-          <div class="award-item">
-            <div class="award-icon">💡</div>
+          <div class="aw-item">
+            <div class="aw-mark">02</div>
+            <div class="aw-sep"></div>
             <div>
-              <div class="award-title">YFN 8.0 Hackathon — Platzierung</div>
-              <div class="award-org">Young Founders Network · Sommer 2025</div>
+              <div class="aw-title">YFN 8.0 Hackathon — Platzierung</div>
+              <div class="aw-org">Young Founders Network · Sommer 2025</div>
             </div>
           </div>
-          <div class="award-item">
-            <div class="award-icon">🏎️</div>
+          <div class="aw-item">
+            <div class="aw-mark">03</div>
+            <div class="aw-sep"></div>
             <div>
-              <div class="award-title">STEM-Racing-Wettbewerb — 2× Teilnahme</div>
-              <div class="award-org">Schülerforschungszentrum · 2023 &amp; 2024</div>
+              <div class="aw-title">STEM-Racing-Wettbewerb — 2× Teilnahme</div>
+              <div class="aw-org">Schülerforschungszentrum · 2023 &amp; 2024</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <hr class="divider">
+    <hr class="div">
 
     <!-- SKILLS -->
     <section id="skills">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Skills</div>
-          <h2 class="section-title">Tech Stack</h2>
+      <div class="wrap" style="position:relative">
+        <span class="sec-num" aria-hidden="true">06</span>
+        <div class="sh">
+          <div class="sh-eyebrow">Skills</div>
+          <h2 class="sh-title">Tech <span class="k">Stack</span></h2>
         </div>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <div class="skill-group-title">Frontend</div>
-            <div class="skill-chips">
-              <span class="skill-chip">JavaScript</span>
-              <span class="skill-chip">TypeScript</span>
-              <span class="skill-chip">React</span>
-              <span class="skill-chip">Next.js</span>
-              <span class="skill-chip">HTML &amp; CSS</span>
+        <div class="sk-grid">
+          <div class="sk-group">
+            <div class="sk-title">Frontend</div>
+            <div class="sk-chips">
+              <span class="sk-chip">JavaScript</span>
+              <span class="sk-chip">TypeScript</span>
+              <span class="sk-chip">React</span>
+              <span class="sk-chip">Next.js</span>
+              <span class="sk-chip">HTML &amp; CSS</span>
             </div>
           </div>
-          <div class="skill-group">
-            <div class="skill-group-title">Mobile</div>
-            <div class="skill-chips">
-              <span class="skill-chip">Flutter</span>
-              <span class="skill-chip">Dart</span>
-              <span class="skill-chip">React Native (Expo)</span>
-              <span class="skill-chip">Kotlin</span>
-              <span class="skill-chip">Swift</span>
+          <div class="sk-group">
+            <div class="sk-title">Mobile</div>
+            <div class="sk-chips">
+              <span class="sk-chip">Flutter</span>
+              <span class="sk-chip">Dart</span>
+              <span class="sk-chip">React Native (Expo)</span>
+              <span class="sk-chip">Kotlin</span>
+              <span class="sk-chip">Swift</span>
             </div>
           </div>
-          <div class="skill-group">
-            <div class="skill-group-title">Backend &amp; Datenbank</div>
-            <div class="skill-chips">
-              <span class="skill-chip">Supabase</span>
-              <span class="skill-chip">Firebase</span>
-              <span class="skill-chip">PostgreSQL</span>
-              <span class="skill-chip">Java</span>
-              <span class="skill-chip">Node.js</span>
+          <div class="sk-group">
+            <div class="sk-title">Backend &amp; Datenbank</div>
+            <div class="sk-chips">
+              <span class="sk-chip">Supabase</span>
+              <span class="sk-chip">Firebase</span>
+              <span class="sk-chip">PostgreSQL</span>
+              <span class="sk-chip">Java</span>
+              <span class="sk-chip">Node.js</span>
             </div>
           </div>
-          <div class="skill-group">
-            <div class="skill-group-title">KI &amp; Tools</div>
-            <div class="skill-chips">
-              <span class="skill-chip">Claude API</span>
-              <span class="skill-chip">OpenAI API</span>
-              <span class="skill-chip">Cursor</span>
-              <span class="skill-chip">GitHub Copilot</span>
-              <span class="skill-chip">v0 by Vercel</span>
-              <span class="skill-chip">ElevenLabs</span>
+          <div class="sk-group">
+            <div class="sk-title">KI &amp; Tools</div>
+            <div class="sk-chips">
+              <span class="sk-chip">Claude API</span>
+              <span class="sk-chip">OpenAI API</span>
+              <span class="sk-chip">Cursor</span>
+              <span class="sk-chip">GitHub Copilot</span>
+              <span class="sk-chip">v0 by Vercel</span>
+              <span class="sk-chip">ElevenLabs</span>
             </div>
           </div>
-          <div class="skill-group">
-            <div class="skill-group-title">Wissenschaft</div>
-            <div class="skill-chips">
-              <span class="skill-chip">MATLAB</span>
-              <span class="skill-chip">Simulink</span>
-              <span class="skill-chip">CS50</span>
+          <div class="sk-group">
+            <div class="sk-title">Wissenschaft</div>
+            <div class="sk-chips">
+              <span class="sk-chip">MATLAB</span>
+              <span class="sk-chip">Simulink</span>
+              <span class="sk-chip">CS50</span>
             </div>
           </div>
-          <div class="skill-group">
-            <div class="skill-group-title">Sprachen</div>
-            <div class="skill-chips">
-              <span class="skill-chip">Deutsch (Muttersprache)</span>
-              <span class="skill-chip">Italiano (Madrelingua)</span>
-              <span class="skill-chip">English C1</span>
-              <span class="skill-chip">Latein (Latinum)</span>
+          <div class="sk-group">
+            <div class="sk-title">Sprachen</div>
+            <div class="sk-chips">
+              <span class="sk-chip">Deutsch (Muttersprache)</span>
+              <span class="sk-chip">Italiano (Madrelingua)</span>
+              <span class="sk-chip">English C1</span>
+              <span class="sk-chip">Latein (Latinum)</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <hr class="divider">
+    <hr class="div">
 
     <!-- BLOG -->
     <section id="blog">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Blog</div>
-          <h2 class="section-title">Gedanken &amp; Einblicke</h2>
-          <p class="section-desc">Hier teile ich bald Gedanken zu Unternehmertum, Technologie und Gesellschaft.</p>
+      <div class="wrap" style="position:relative">
+        <span class="sec-num" aria-hidden="true">07</span>
+        <div class="sh">
+          <div class="sh-eyebrow">Blog</div>
+          <h2 class="sh-title">Gedanken &amp; <span class="k">Einblicke</span></h2>
+          <p class="sh-desc">Zu Unternehmertum, Technologie und Gesellschaft.</p>
         </div>
-        <div class="blog-placeholder">
-          <h3>Demnächst</h3>
-          <p>Die ersten Beiträge sind in Planung. Stay tuned.</p>
+        <div class="blog-ph">
+          <p>Demnächst — Stay tuned</p>
         </div>
       </div>
     </section>
 
-    <hr class="divider">
+    <hr class="div">
 
     <!-- CONTACT -->
     <section id="contact">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-eyebrow">Kontakt</div>
-          <h2 class="section-title">Lass uns reden</h2>
-          <p class="section-desc">Offen für Praktika, spannende Projekte und gute Gespräche.</p>
+      <div class="wrap" style="position:relative">
+        <span class="sec-num" aria-hidden="true">08</span>
+        <div class="sh">
+          <div class="sh-eyebrow">Kontakt</div>
+          <h2 class="sh-title">Lass uns <span class="k">reden</span></h2>
+          <p class="sh-desc">Offen für Praktika, Projekte und gute Gespräche.</p>
         </div>
-        <div class="contact-grid">
-          <a href="mailto:ilyasmkocatas@gmail.com" class="contact-link">
+        <div class="ct-grid">
+          <a href="mailto:ilyasmkocatas@gmail.com" class="ct-link">
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
             ilyasmkocatas@gmail.com
           </a>
-          <a href="https://linkedin.com/in/ilyasmkocatas" target="_blank" rel="noopener" class="contact-link">
+          <a href="https://linkedin.com/in/ilyasmkocatas" target="_blank" rel="noopener" class="ct-link">
             <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
           </a>
-          <a href="https://github.com/ilyasmkocatas" target="_blank" rel="noopener" class="contact-link">
+          <a href="https://github.com/ilyasmkocatas" target="_blank" rel="noopener" class="ct-link">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
             GitHub
           </a>
@@ -705,25 +707,22 @@
   </main>
 
   <footer>
-    <div class="container">
-      <p>© 2026 Ilyas M. Kocatas · Made with <span>♥</span> in Friedrichshafen</p>
+    <div class="wrap">
+      <p>Ilyas M. Kocatas <span>·</span> Friedrichshafen <span>·</span> 2026</p>
     </div>
   </footer>
 
   <script>
-    const html = document.documentElement;
-    const toggle = document.getElementById('themeToggle');
-    const icon = document.getElementById('themeIcon');
-    const SUN = 'M12 2a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm0 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm7.071-12.071a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zM21 11h1a1 1 0 0 1 0 2h-1a1 1 0 0 1 0-2zM17.657 17.657a1 1 0 0 1 1.414 1.414l-.707.707a1 1 0 0 1-1.414-1.414l.707-.707zM13 20v1a1 1 0 0 1-2 0v-1a1 1 0 0 1 2 0zM6.343 17.657l.707.707a1 1 0 0 1-1.414 1.414l-.707-.707a1 1 0 0 1 1.414-1.414zM2 11h1a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2zM6.343 6.343l-.707-.707a1 1 0 0 1 1.414-1.414l.707.707a1 1 0 0 1-1.414 1.414z';
-    const MOON = 'M21.75 15.07A10.003 10.003 0 0 1 8.93 2.25a10 10 0 1 0 12.82 12.82z';
-    const saved = localStorage.getItem('theme') || 'dark';
-    html.setAttribute('data-theme', saved);
-    icon.querySelector('path').setAttribute('d', saved === 'light' ? SUN : MOON);
-    toggle.addEventListener('click', () => {
-      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      icon.querySelector('path').setAttribute('d', next === 'light' ? SUN : MOON);
+    const html=document.documentElement,toggle=document.getElementById('themeToggle'),icon=document.getElementById('themeIcon');
+    const SUN='M12 2a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm0 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm7.071-12.071a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zM21 11h1a1 1 0 0 1 0 2h-1a1 1 0 0 1 0-2zM17.657 17.657a1 1 0 0 1 1.414 1.414l-.707.707a1 1 0 0 1-1.414-1.414l.707-.707zM13 20v1a1 1 0 0 1-2 0v-1a1 1 0 0 1 2 0zM6.343 17.657l.707.707a1 1 0 0 1-1.414 1.414l-.707-.707a1 1 0 0 1 1.414-1.414zM2 11h1a1 1 0 0 1 0 2H2a1 1 0 0 1 0-2zM6.343 6.343l-.707-.707a1 1 0 0 1 1.414-1.414l.707.707a1 1 0 0 1-1.414 1.414z';
+    const MOON='M21.75 15.07A10.003 10.003 0 0 1 8.93 2.25a10 10 0 1 0 12.82 12.82z';
+    const saved=localStorage.getItem('theme')||'dark';
+    html.setAttribute('data-theme',saved);
+    icon.querySelector('path').setAttribute('d',saved==='light'?SUN:MOON);
+    toggle.addEventListener('click',()=>{
+      const next=html.getAttribute('data-theme')==='dark'?'light':'dark';
+      html.setAttribute('data-theme',next);localStorage.setItem('theme',next);
+      icon.querySelector('path').setAttribute('d',next==='light'?SUN:MOON);
     });
   </script>
 
