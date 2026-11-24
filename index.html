@@ -7,6 +7,14 @@
 <title>Ilyas M. Kocatas · Portfolio</title>
 <meta name="description" content="Ilyas M. Kocatas: Schüler, Unternehmer und Entwickler aus Friedrichshafen. Projekte, Erfahrung und Kontakt.">
 <meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://ilyasmkocatas.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ilyas M. Kocatas · Portfolio">
+<meta property="og:description" content="Schüler, Unternehmer und Entwickler aus Friedrichshafen. Projekte, Erfahrung und Kontakt.">
+<meta property="og:url" content="https://ilyasmkocatas.github.io/">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ilyas M. Kocatas","url":"https://ilyasmkocatas.github.io/","email":"mailto:ilyasmkocatas@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Friedrichshafen","addressRegion":"Baden-Württemberg","addressCountry":"DE"},"jobTitle":"Schüler, Unternehmer und Entwickler","alumniOf":"Graf-Zeppelin-Gymnasium","knowsLanguage":["de","it","en"],"sameAs":["https://github.com/ilyasmkocatas","https://linkedin.com/in/ilyasmkocatas"]}</script>
 <style>
 @font-face{font-family:'Inter';font-weight:400;font-style:normal;font-display:swap;src:url(fonts/inter-400.woff2) format('woff2')}
 @font-face{font-family:'Inter';font-weight:500;font-style:normal;font-display:swap;src:url(fonts/inter-500.woff2) format('woff2')}
@@ -942,11 +950,43 @@ body[data-view="legal"] .asciibg{display:none}
 .cmprow:last-child{border-bottom:0;padding-bottom:0}
 .cmprow b{font-weight:500;color:var(--mid)}
 .cmprow span{font-family:var(--ui);font-weight:600;font-variant-numeric:tabular-nums;font-size:14px;text-align:right}
+.bignum,.bignum .cnt{color:var(--acc)}
+.pilbl{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#6b6b73;margin-bottom:6px}
+.pitext{background:#0b0b0e;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px;font-size:10.5px;line-height:1.6;color:#c9c9d0;min-height:70px;white-space:pre-wrap}
+.pichips{display:flex;flex-wrap:wrap;gap:5px;margin:9px 0}
+.pichips span{font-family:var(--mono);font-size:8.5px;color:#9a9aa3;border:1px solid rgba(255,255,255,.1);border-radius:99px;padding:3px 8px}
+.pibtn{background:var(--acc);color:#fff;border-radius:9px;padding:8px 14px;font-size:11px;font-weight:600;transition:background .25s,transform .25s var(--ease)}
+.pibtn:hover{background:var(--acc-2);transform:translateY(-1px)}
+.pilog{margin-top:10px;min-height:0;font-size:9.5px;padding:0 10px}
+.pilog:not(:empty){padding:8px 10px}
+.pout{font-size:10.5px;line-height:1.65;color:#d6d6dc;white-space:pre-wrap;min-height:120px}
+.pout b{color:#fff}
+.pout .ph{color:#6b6b73;font-family:var(--mono);font-size:10px}
+.pass{background:linear-gradient(150deg,var(--acc),var(--acc-2));color:#fff;border-radius:16px;padding:14px;box-shadow:0 10px 26px rgba(255,75,37,.25)}
+.pass .ptop{display:flex;justify-content:space-between;align-items:baseline}
+.pass .ptop b{font-size:14px;letter-spacing:-.01em}
+.pass .ptop span{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
+.pgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:14px 0 12px}
+.pgrid i{aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.35);transition:background .35s var(--ease),transform .35s var(--ease)}
+.pgrid i.on{background:#fff;border-color:#fff;transform:scale(1.06)}
+.pfoot{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;letter-spacing:.06em;opacity:.95}
+.vf{position:relative;height:150px;margin:8px 0 14px;border-radius:16px;background:var(--surf2);border:1px solid var(--line);overflow:hidden;display:grid;place-items:center}
+.vf em{font-style:normal;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.vf i{position:absolute;width:22px;height:22px;border:2px solid var(--acc)}
+.vf .c1{top:14px;left:14px;border-right:0;border-bottom:0}.vf .c2{top:14px;right:14px;border-left:0;border-bottom:0}
+.vf .c3{bottom:14px;left:14px;border-right:0;border-top:0}.vf .c4{bottom:14px;right:14px;border-left:0;border-top:0}
+.vfl{position:absolute;left:14px;right:14px;height:2px;background:var(--acc);box-shadow:0 0 12px var(--acc);animation:vfl 2.2s var(--ease) infinite alternate}
+@keyframes vfl{from{top:20px}to{top:128px}}
+.abtn.pulse{animation:pop .4s var(--ease)}
+.skip{position:fixed;left:12px;top:-60px;z-index:1000;background:var(--acc);color:#fff;padding:8px 14px;border-radius:99px;font-size:13px;font-weight:600;transition:top .2s var(--ease)}
+.skip:focus{top:12px}
+@media print{#pre,.tbar,.asciibg,.cur,.curr,#rain,.globe-col,footer{display:none!important}body{background:#fff;color:#000}[data-r]{opacity:1!important;transform:none!important}}
 
 </style>
 <noscript><style>#pre{display:none}[data-r]{opacity:1;transform:none}body.booting main{opacity:1}</style></noscript>
 </head>
 <body>
+<a href="#profil" class="skip">Zum Inhalt springen</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ck" viewBox="0 0 24 24"><path d="M4 12.5l5.5 5.5L20 6"/></symbol></svg>
 
 <div id="pre">
@@ -971,9 +1011,9 @@ body[data-view="legal"] .asciibg{display:none}
         <button class="tbtn" data-open><span data-en="Projects">Projekte</span><svg class="cv" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
         <div class="tbmenu">
           <a href="#projekte" data-close><b>LockIt</b><span data-en="NFC focus app, live in pilot">NFC-Fokus-App, live im Pilot</span></a>
-          <a href="#projekte" data-close><b>PostIt</b><span data-en="AI content platform">KI-Plattform für Social-Media-Content</span></a>
+          <a href="#projekte" data-close><b>PostIt</b><span data-en="Free content tool">Kostenloses Content-Tool</span></a>
           <a href="#projekte" data-close><b>StampIt</b><span data-en="Digital loyalty cards in the wallet">Digitale Stempelkarten im Wallet</span></a>
-          <a href="#projekte" data-close><b>Inf1nity Racing</b><span data-en="STEM Racing team">STEM-Racing-Team</span></a>
+          <a href="#projekte" data-close><b>Infinity Racing</b><span data-en="STEM Racing team">STEM-Racing-Team</span></a>
           <a href="#projekte" data-close><b>Kocatas Institute e.V.</b><span data-en="Non-profit initiative">Gemeinnützige Initiative</span></a>
         </div>
       </div>
@@ -1177,53 +1217,112 @@ body[data-view="legal"] .asciibg{display:none}
       </div>
 
 
+      <!-- PostIt -->
       <div class="showcase rev" style="margin-top:var(--s5);margin-bottom:var(--s5)">
         <div data-r class="txtcol">
-          <span class="lbl acc" data-en="In development">In Entwicklung</span>
-          <h3 style="margin:12px 0 10px;font-size:26px">PostIt · StampIt</h3>
-          <p data-en="PostIt turns a voice note into finished posts for LinkedIn, X and Threads and schedules them. StampIt puts loyalty cards straight into Apple and Google Wallet, no app download needed.">
-            PostIt macht aus einer Sprachnotiz fertige Beiträge für LinkedIn, X und Threads und plant sie ein. StampIt legt Stempelkarten direkt in Apple und Google Wallet, ganz ohne App-Download.</p>
-          <p style="font-size:var(--t-xs);color:var(--dim);margin-top:10px" data-en="Interface demo, simplified.">Oberflächen-Demo, vereinfacht.</p>
+          <span class="lbl acc" data-en="Free · open source">Kostenlos · Open Source</span>
+          <h3 style="margin:12px 0 10px;font-size:26px">PostIt</h3>
+          <p data-en="One input becomes a newsletter plus LinkedIn and X posts in one run. You add your own style samples, so it sounds like you and not like an AI. Runs on your own free Gemini key, so it costs nothing to operate.">
+            Aus einem Input werden in einem Durchlauf ein Newsletter plus LinkedIn- und X-Posts. Du hinterlegst eigene Stil-Beispiele, damit es nach dir klingt und nicht nach KI. Läuft mit deinem eigenen kostenlosen Gemini-Key und kostet damit im Betrieb nichts.</p>
+          <p style="font-size:var(--t-xs);color:var(--dim);margin-top:10px" data-en="Interface demo with sample content.">Oberflächen-Demo mit Beispielinhalt.</p>
+          <a href="https://postit.kocatassoftware.com" target="_blank" rel="noopener" class="btn ghost" style="margin-top:16px" data-en="Open PostIt ↗">PostIt öffnen ↗</a>
         </div>
         <div data-r style="transition-delay:.08s;display:flex;flex-direction:column;align-items:center">
-          <div class="demohint"><span class="pd"></span><span data-en="Live demo — switch tabs">Live-Demo — Tabs wechseln</span></div>
+          <div class="demohint"><span class="pd"></span><span data-en="Live demo — generate content">Live-Demo — Content erzeugen</span></div>
           <div class="macbook">
             <div class="mb-screen"><div class="mb-in">
-              <div class="mb-bar"><i></i><i></i><i></i><span id="mbTitle">postit — workspace</span></div>
-              <div class="mbtabs" id="mbTabs">
-                <button class="on" data-v="po">PostIt</button>
-                <button data-v="st">StampIt</button>
+              <div class="mb-bar"><i></i><i></i><i></i><span>postit — workspace</span></div>
+              <div class="mbtabs" id="piTabs">
+                <button class="on" data-v="in">Input</button>
+                <button data-v="nl">Newsletter</button>
+                <button data-v="li">LinkedIn</button>
+                <button data-v="x">X</button>
               </div>
-              <div class="mb-body" style="display:block;min-height:250px">
-                <div class="mbview on" data-mv="po">
-                  <div style="display:grid;grid-template-columns:1.05fr .95fr;gap:10px">
-                    <div class="term" id="mbTerm"></div>
-                    <div class="mbcol">
-                      <div class="mkpi">
-                        <div><b class="num" id="k1">0</b><span data-en="drafts today">Entwürfe heute</span></div>
-                        <div><b class="num" id="k2">0</b><span data-en="hours saved">Stunden gespart</span></div>
-                      </div>
-                      <div class="mchart" id="mbChart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                    </div>
-                  </div>
+              <div class="mb-body" style="display:block;min-height:262px">
+                <div class="mbview on" data-pv="in">
+                  <div class="pilbl" data-en="Raw thoughts">Rohe Gedanken</div>
+                  <div class="pitext" id="piIn"></div>
+                  <div class="pichips"><span data-en="Style: direct, short">Stil: direkt, kurz</span><span data-en="3 style samples">3 Stil-Beispiele</span><span>Gemini · BYOK</span></div>
+                  <button class="pibtn" id="piGo" data-en="Generate content">Content erzeugen</button>
+                  <div class="term pilog" id="piLog"></div>
                 </div>
-                <div class="mbview" data-mv="st">
-                  <div class="stampcard">
-                    <div class="sch"><b>Café Beispiel</b><span data-en="loyalty card · demo">Stempelkarte · Demo</span></div>
-                    <div class="stampgrid" id="stampGrid"></div>
-                    <div class="stfoot"><span id="stCount">0 / 10</span><span data-en="Free coffee at 10">Gratis-Kaffee bei 10</span></div>
-                  </div>
-                  <div class="mkpi" style="margin-top:10px">
-                    <div><b class="num">Apple · Google</b><span>Wallet</span></div>
-                    <div><b class="num">0</b><span data-en="app downloads">App-Downloads</span></div>
-                  </div>
-                </div>
+                <div class="mbview" data-pv="nl"><div class="pout" id="piNl"></div></div>
+                <div class="mbview" data-pv="li"><div class="pout" id="piLi"></div></div>
+                <div class="mbview" data-pv="x"><div class="pout" id="piX"></div></div>
               </div>
             </div></div>
             <div class="mb-hinge"></div><div class="mb-base"></div>
           </div>
         </div>
       </div>
+
+      <!-- StampIt -->
+      <div class="showcase" style="margin-top:var(--s5);margin-bottom:var(--s5)">
+        <div data-r style="display:flex;flex-direction:column;align-items:center">
+          <div class="demohint"><span class="pd"></span><span data-en="Live demo — hand out stamps">Live-Demo — Stempel vergeben</span></div>
+          <div class="iphone">
+            <span class="btn-r"></span>
+            <div class="inner"><div class="scr">
+              <div class="island"></div>
+              <div class="notif" id="sNotif">
+                <span class="ni"><svg viewBox="0 0 24 24"><path d="M5 12.5l5 5L19 7"/></svg></span>
+                <div><b>Café Beispiel</b><span id="sNotifTxt"></span></div>
+                <span class="tm" data-en="now">jetzt</span>
+              </div>
+              <div class="appui">
+                <div class="atop"><span class="hi" data-en="Wallet pass">Wallet-Karte</span><b>Café Beispiel</b></div>
+                <div class="appbody">
+                  <div class="ascreen on" data-scr="card">
+                    <div class="pass">
+                      <div class="ptop"><b>Café Beispiel</b><span id="sTier">Bronze</span></div>
+                      <div class="pgrid" id="sGrid"></div>
+                      <div class="pfoot"><span id="sCount">0 / 10</span><span data-en="Free coffee at 10">Gratis-Kaffee bei 10</span></div>
+                    </div>
+                    <div class="alist" style="margin-top:12px">
+                      <div class="arow"><span class="ai"></span><span data-en="Customer scans QR at the counter">Kunde scannt QR am Tresen</span></div>
+                      <div class="arow"><span class="ai"></span><span data-en="Pass lands in Apple or Google Wallet">Karte landet in Apple/Google Wallet</span></div>
+                      <div class="arow free"><span class="ai"></span><span data-en="No app, no account">Keine App, kein Account</span></div>
+                    </div>
+                  </div>
+                  <div class="ascreen" data-scr="scan">
+                    <div class="vf"><i class="c1"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i><span class="vfl"></span><em data-en="Customer QR">Kunden-QR</em></div>
+                    <button class="abtn" id="sStamp" data-en="Give stamp">Stempel vergeben</button>
+                    <button class="abtn ghost2" id="sRedeem" style="margin-top:8px;opacity:.45" data-en="Redeem reward">Belohnung einlösen</button>
+                    <div class="demonote" data-en="Staff app in the browser, PIN login.">Mitarbeiter-App im Browser, PIN-Login.</div>
+                  </div>
+                  <div class="ascreen" data-scr="stats">
+                    <div class="astat">
+                      <div><b class="num" id="sK1">128</b><span data-en="active cards">aktive Karten</span></div>
+                      <div><b class="num" id="sK2">0</b><span data-en="stamps today">Stempel heute</span></div>
+                    </div>
+                    <div style="font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:14px" data-en="Last 7 days">Letzte 7 Tage</div>
+                    <div class="abars" id="sBars"></div>
+                    <div class="astat" style="margin-top:10px">
+                      <div><b class="num">34 %</b><span data-en="return rate">Wiederkehrquote</span></div>
+                      <div><b class="num">4,8 ★</b><span data-en="Google reviews">Google-Bewertung</span></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="atabs" id="sTabs">
+                  <button class="on" data-go="card"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M3 10h18"/></svg><span data-en="Card">Karte</span></button>
+                  <button data-go="scan"><svg viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 012-2h2M16 4h2a2 2 0 012 2v2M20 16v2a2 2 0 01-2 2h-2M8 20H6a2 2 0 01-2-2v-2M4 12h16"/></svg><span data-en="Scanner">Scanner</span></button>
+                  <button data-go="stats"><svg viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-6"/></svg><span data-en="Stats">Statistik</span></button>
+                </div>
+              </div>
+            </div></div>
+          </div>
+          <p class="taghint" id="sHint" data-en="Switch to the scanner and give stamps">Zum Scanner wechseln und Stempel vergeben</p>
+        </div>
+        <div data-r class="txtcol" style="transition-delay:.08s">
+          <span class="lbl acc" data-en="In development">In Entwicklung</span>
+          <h3 style="margin:12px 0 10px;font-size:26px">StampIt</h3>
+          <p data-en="Digital loyalty cards for local businesses: the customer scans a QR code and the card lands in Apple or Google Wallet. No app download, no account. The shop hands out stamps in a browser-based staff app and sees its numbers in a dashboard.">
+            Digitale Stempelkarten für lokale Betriebe: Der Kunde scannt einen QR-Code und die Karte landet in Apple oder Google Wallet. Kein App-Download, kein Account. Der Betrieb vergibt Stempel in einer Mitarbeiter-App im Browser und sieht seine Zahlen im Dashboard.</p>
+          <p style="font-size:var(--t-xs);color:var(--dim);margin-top:10px" data-en="Interface demo with sample business.">Oberflächen-Demo mit Beispielbetrieb.</p>
+          <a href="https://stampit.kocatassoftware.com" target="_blank" rel="noopener" class="btn ghost" style="margin-top:16px" data-en="Open StampIt ↗">StampIt öffnen ↗</a>
+        </div>
+      </div>
+
 
       <div class="g3">
         <div class="card" data-r>
@@ -1233,16 +1332,18 @@ body[data-view="legal"] .asciibg{display:none}
         </div>
         <div class="card" data-r style="transition-delay:.06s">
           <span class="n">02</span><h3>PostIt</h3>
-          <p data-en="AI platform for social content and scheduling: viral feed, deep boost, creator tracking and voice to content.">KI-Plattform für Social-Media-Content und Scheduling: Viral Feed, Deep Boost, Creator Tracking und Voice-to-Content.</p>
-          <div class="tagrow"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Supabase</span><span class="tag">Claude API</span><span class="tag">ElevenLabs</span></div>
+          <p data-en="Free open-source content tool: one input becomes a newsletter plus LinkedIn and X posts, in your own style, on your own Gemini key.">Kostenloses Open-Source-Content-Tool: aus einem Input werden Newsletter plus LinkedIn- und X-Posts, in deinem Stil und mit deinem eigenen Gemini-Key.</p>
+          <div class="tagrow"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Supabase</span><span class="tag">Gemini</span><span class="tag">Open Source</span></div>
+          <a href="https://postit.kocatassoftware.com" target="_blank" rel="noopener" class="plink">postit.kocatassoftware.com ↗</a>
         </div>
         <div class="card" data-r style="transition-delay:.12s">
           <span class="n">03</span><h3>StampIt</h3>
-          <p data-en="Digital loyalty cards in Apple and Google Wallet. B2B SaaS for the DACH market with QR stamps, tiers and a Google review loop.">Digitale Stempelkarten in Apple und Google Wallet. B2B-SaaS für den DACH-Markt mit QR-Stempel, Tier-System und Google-Review-Loop.</p>
+          <p data-en="Digital loyalty cards in Apple and Google Wallet for local businesses. B2B SaaS for the DACH market with QR stamps and a staff app.">Digitale Stempelkarten in Apple und Google Wallet für lokale Betriebe. B2B-SaaS für den DACH-Markt mit QR-Stempel und Mitarbeiter-App.</p>
           <div class="tagrow"><span class="tag">Next.js 15</span><span class="tag">Supabase</span><span class="tag">Stripe</span><span class="tag">pkpass</span><span class="tag">Web NFC</span></div>
+          <a href="https://stampit.kocatassoftware.com" target="_blank" rel="noopener" class="plink">stampit.kocatassoftware.com ↗</a>
         </div>
         <div class="card" data-r>
-          <span class="n">04</span><h3>Inf1nity Racing</h3>
+          <span class="n">04</span><h3>Infinity Racing</h3>
           <p data-en="STEM racing team from Friedrichshafen, co-founded in 2023 at the SFZ. 10+ members, CO₂-powered miniature F1 cars, 20 m track, two competitions (2023 and 2024).">STEM-Racing-Team aus Friedrichshafen, 2023 am SFZ mitgegründet. 10+ Mitglieder, CO₂-betriebene Miniatur-F1-Autos, 20-m-Strecke, zwei Wettbewerbe (2023 und 2024).</p>
           <div class="tagrow"><span class="tag">STEM Racing</span><span class="tag">Engineering</span><span class="tag" data-en="Team lead">Teamleitung</span></div>
           <a href="https://www.inf1nityracing.de" target="_blank" rel="noopener" class="plink">inf1nityracing.de ↗</a>
@@ -1298,7 +1399,7 @@ body[data-view="legal"] .asciibg{display:none}
           <div><b>2023</b><span data-en="Social internship · STEM Racing">Sozialpraktikum · STEM Racing</span></div>
           <div><b>2024</b><span data-en="Bundestag · Youth parliament">Bundestag · Jugendparlament</span></div>
           <div><b>2025</b><span data-en="YEEP · USA · Student rep">YEEP · USA · Schülersprecher</span></div>
-          <div><b>2026</b><span data-en="ZF simulation · MINT day">ZF Simulation · MINT-Tag</span></div>
+          <div><b>2026</b><span data-en="ZF simulation · SAP · MINT day">ZF Simulation · SAP · MINT-Tag</span></div>
           <div><b>2027</b><span>Abitur</span></div>
         </div>
       </div>
@@ -1331,8 +1432,12 @@ body[data-view="legal"] .asciibg{display:none}
         <span class="lbl acc" data-en="Education">Ausbildung</span>
         <h2 data-en="School <span class='k'>career</span>">Schulischer <span class="k">Werdegang</span></h2>
       </div>
-      <div class="g2">
+      <div class="g3">
         <div class="card" data-r>
+          <span class="n" data-en="August 2026">August 2026</span><h3>SAP · IBAIT</h3>
+          <p data-en="SAP SE · Walldorf">SAP SE · Walldorf</p>
+        </div>
+        <div class="card" data-r style="transition-delay:.08s">
           <span class="n">2025 — 2027</span><h3>Graf-Zeppelin-Gymnasium</h3>
           <p data-en="Abitur (general university entrance qualification) · Friedrichshafen">Allgemeine Hochschulreife (Abitur) · Friedrichshafen</p>
           <ul class="facts">
@@ -1341,7 +1446,7 @@ body[data-view="legal"] .asciibg{display:none}
             <li data-en="Student representative since 2025">Schülersprecher seit 2025</li>
           </ul>
         </div>
-        <div class="card" data-r style="transition-delay:.08s">
+        <div class="card" data-r style="transition-delay:.16s">
           <span class="n">2019 — 2025</span><h3>Karl-Maybach-Gymnasium</h3>
           <p data-en="Bilingual G8 · Friedrichshafen">Bilingual G8 · Friedrichshafen</p>
           <ul class="facts">
@@ -1506,8 +1611,8 @@ body[data-view="legal"] .asciibg{display:none}
     <div class="wm" style="margin-bottom:24px"><span class="sq"></span><span class="txt"><b>ILYAS M. KOCATAS</b></span></div>
     <div class="fgrid4">
       <div class="fcol"><h5 data-en="Projects">Projekte</h5>
-        <a href="#projekte">LockIt</a><a href="#projekte">PostIt</a><a href="#projekte">StampIt</a>
-        <a href="https://www.inf1nityracing.de" target="_blank" rel="noopener">Inf1nity Racing ↗</a></div>
+        <a href="#projekte">LockIt</a><a href="https://postit.kocatassoftware.com" target="_blank" rel="noopener">PostIt ↗</a><a href="https://stampit.kocatassoftware.com" target="_blank" rel="noopener">StampIt ↗</a>
+        <a href="https://www.inf1nityracing.de" target="_blank" rel="noopener">Infinity Racing ↗</a></div>
       <div class="fcol"><h5 data-en="Profile">Profil</h5>
         <a href="#profil" data-en="About me">Über mich</a><a href="#erfahrung" data-en="Experience">Erfahrung</a>
         <a href="#ausbildung" data-en="Education">Ausbildung</a><a href="#engagement" data-en="Commitment">Engagement</a></div>
@@ -1722,7 +1827,7 @@ const Rain=(function(){
  document.getElementById('aTabs').addEventListener('click',e=>{
   const b=e.target.closest('button');if(!b)return;
   e.currentTarget.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
-  document.querySelectorAll('.ascreen').forEach(s=>s.classList.toggle('on',s.dataset.scr===b.dataset.go))});
+  document.querySelectorAll('#demoStage .ascreen').forEach(s=>s.classList.toggle('on',s.dataset.scr===b.dataset.go))});
  const d=document.getElementById('aDemo');
  if(d)d.onclick=()=>toast(LANG==='de'?'Raum 204 · 26 von 28 gesperrt':'Room 204 · 26 of 28 locked');
  const bars=document.getElementById('aBars');
@@ -1766,38 +1871,65 @@ const Rain=(function(){
 
 
 
-/* ==================== MAC-DEMO ==================== */
-(function(){const box=$('mbTerm');if(!box)return;
- const L={de:[['$ ','postit draft --voice'],['› ','transkription  <b>ok</b>'],['› ','claude api  <b>2,1 s</b>'],
-   ['› ','linkedin · x · threads  <b>3</b>'],['› ','geplant  <b>mo 08:30</b>'],['$ ','']],
-  en:[['$ ','postit draft --voice'],['› ','transcription  <b>ok</b>'],['› ','claude api  <b>2.1 s</b>'],
-   ['› ','linkedin · x · threads  <b>3</b>'],['› ','scheduled  <b>mon 08:30</b>'],['$ ','']]};
- let run=false;
- function play(){const lines=L[LANG]||L.de;box.innerHTML='';let i=0;
-  (function nx(){if(i>=lines.length){setTimeout(play,4200);return}
-   const[p,t]=lines[i];const el=document.createElement('div');el.innerHTML='<b>'+p+'</b>';box.appendChild(el);
-   let j=0;const plain=t.replace(/<[^>]+>/g,'');
-   (function ty(){if(j<plain.length){el.innerHTML='<b>'+p+'</b><em>'+plain.slice(0,++j)+'</em>';setTimeout(ty,18)}
-    else{el.innerHTML='<b>'+p+'</b><em>'+t+'</em>';i++;setTimeout(nx,180)}})()})()}
- once(box,()=>{if(!run){run=true;play()}},.3);
- const k1=$('k1'),k2=$('k2');let v1=0,v2=0;
- once($('mbChart'),()=>{
-  setInterval(()=>{v1=Math.min(999,v1+Math.round(Math.random()*3));k1.textContent=v1;
-   v2=Math.min(64,v2+Math.random()*.4);k2.textContent=v2.toFixed(1)},900);
-  const bars=[...document.querySelectorAll('#mbChart i')];
-  const set=()=>bars.forEach(b=>b.style.height=(24+Math.random()*72)+'%');
-  set();setInterval(set,1600)},.3);
- /* Tabs + Stempelkarte */
- const grid=$('stampGrid'),cnt=$('stCount');let stT=null;
- grid.innerHTML='<i></i>'.repeat(10);
- function stamps(){clearTimeout(stT);const cells=[...grid.children];cells.forEach(c=>c.classList.remove('on'));cnt.textContent='0 / 10';let n=0;
-  (function nx(){if(n<10){cells[n].classList.add('on');n++;cnt.textContent=n+' / 10';stT=setTimeout(nx,260)}else stT=setTimeout(stamps,2600)})()}
- $('mbTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
-  e.currentTarget.querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
-  document.querySelectorAll('.mbview').forEach(v=>v.classList.toggle('on',v.dataset.mv===b.dataset.v));
-  $('mbTitle').textContent=b.dataset.v==='st'?'stampit — wallet':'postit — workspace';
-  if(b.dataset.v==='st')stamps();else clearTimeout(stT)});
+/* ==================== POSTIT-DEMO ==================== */
+(function(){const inEl=$('piIn');if(!inEl)return;
+ const T={de:{
+   inp:'LockIt-Pilot: 26 von 28 Handys gesperrt.\nLehrer: Unterricht ruhiger.\nLehre: NFC-Tag schlägt QR-Code.\nNächster Schritt: zweite Schule.',
+   log:[['$ ','postit generate'],['› ','stil-beispiele  <b>3</b>'],['› ','gemini  <b>ok</b>'],['› ','newsletter · linkedin · x  <b>fertig</b>']],
+   nl:'Betreff: Was ein Pilot über Handys im Unterricht zeigt\n\n26 von 28 Handys waren gesperrt, und der Unterricht wurde ruhiger. Die wichtigste Erkenntnis: Ein NFC-Tag funktioniert im Alltag besser als ein QR-Code.\n\nAls Nächstes kommt die zweite Schule.',
+   li:'Ein Pilot, ein Ergebnis:\n\n26 von 28 Handys gesperrt.\nUnterricht ruhiger.\n\nDie Lehre? Ein NFC-Tag schlägt jeden QR-Code.\n\nDie zweite Schule ist als Nächstes dran.\n\n#EdTech #NFC',
+   x:'1/ 26 von 28 Handys im Pilot gesperrt. Unterricht ruhiger.\n\n2/ Lehre: NFC-Tag schlägt QR-Code. Nächster Stopp: Schule Nummer zwei.',
+   ph:'Noch nichts erzeugt. Im Tab „Input“ auf „Content erzeugen“ klicken.'},
+  en:{
+   inp:'LockIt pilot: 26 of 28 phones locked.\nTeachers: calmer lessons.\nLesson: NFC tag beats QR code.\nNext step: second school.',
+   log:[['$ ','postit generate'],['› ','style samples  <b>3</b>'],['› ','gemini  <b>ok</b>'],['› ','newsletter · linkedin · x  <b>done</b>']],
+   nl:'Subject: What a pilot shows about phones in class\n\n26 of 28 phones were locked and lessons got calmer. The key insight: an NFC tag works better in everyday use than a QR code.\n\nNext up is the second school.',
+   li:'One pilot, one result:\n\n26 of 28 phones locked.\nCalmer lessons.\n\nThe lesson? An NFC tag beats any QR code.\n\nThe second school is next.\n\n#EdTech #NFC',
+   x:'1/ 26 of 28 phones locked in the pilot. Calmer lessons.\n\n2/ Lesson: NFC tag beats QR code. Next stop: school number two.',
+   ph:'Nothing generated yet. Click "Generate content" in the Input tab.'}};
+ const t=()=>T[LANG]||T.de;
+ let done=false,busy=false;
+ const outs={nl:$('piNl'),li:$('piLi'),x:$('piX')};
+ function typeTo(el,txt,cb){el.textContent='';let i=0;(function s(){if(i<txt.length){el.textContent=txt.slice(0,i+=2);setTimeout(s,14)}else{el.textContent=txt;cb&&cb()}})()}
+ function fillPh(){Object.values(outs).forEach(o=>o.innerHTML='<span class="ph">'+t().ph+'</span>')}
+ function show(v){document.querySelectorAll('[data-pv]').forEach(x=>x.classList.toggle('on',x.dataset.pv===v));
+  $('piTabs').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v===v))}
+ function paintIn(){typeTo(inEl,t().inp)}
+ once(inEl,paintIn,.3);fillPh();
+ $('piTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)show(b.dataset.v)});
+ $('piGo').onclick=()=>{if(busy)return;busy=true;const log=$('piLog');log.innerHTML='';let i=0;
+  (function nx(){if(i>=t().log.length){setTimeout(()=>{done=true;busy=false;
+    ['li','x'].forEach(k=>outs[k].textContent=t()[k]);show('nl');typeTo(outs.nl,t().nl)},380);return}
+   const[p,s]=t().log[i++];const el=document.createElement('div');el.innerHTML='<b>'+p+'</b><em>'+s+'</em>';log.appendChild(el);setTimeout(nx,340)})()};
+ $('langbtn').addEventListener('click',()=>{paintIn();if(done){['nl','li','x'].forEach(k=>outs[k].textContent=t()[k])}else fillPh();$('piLog').innerHTML=''});
 })();
+
+/* ==================== STAMPIT-DEMO ==================== */
+(function(){const grid=$('sGrid');if(!grid)return;
+ grid.innerHTML='<i></i>'.repeat(10);
+ const cells=[...grid.children],ph=document.querySelector('#sGrid').closest('.iphone');
+ let st=0,total=0,today=0,nt=null;
+ const S=de=>LANG==='de'?de[0]:de[1];
+ function paint(){cells.forEach((c,i)=>c.classList.toggle('on',i<st));$('sCount').textContent=st+' / 10';
+  $('sTier').textContent=total>=10?'Gold':total>=5?(LANG==='de'?'Silber':'Silver'):'Bronze';
+  $('sK2').textContent=today;$('sRedeem').style.opacity=st>=10?'1':'.45'}
+ function notif(txt){$('sNotifTxt').textContent=txt;const n=$('sNotif');n.classList.add('on');clearTimeout(nt);nt=setTimeout(()=>n.classList.remove('on'),3400)}
+ $('sBars').innerHTML=[38,52,47,66,58,81,72].map(v=>'<i style="height:'+v+'%"></i>').join('');
+ $('sTabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  $('sTabs').querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  ph.querySelectorAll('.ascreen').forEach(s=>s.classList.toggle('on',s.dataset.scr===b.dataset.go))});
+ $('sStamp').onclick=()=>{const b=$('sStamp');b.classList.remove('pulse');void b.offsetWidth;b.classList.add('pulse');
+  if(st>=10){notif(S(['Karte voll. Bitte einlösen.','Card full. Please redeem.']));return}
+  st++;total++;today++;paint();
+  notif(st>=10?S(['Belohnung bereit: Gratis-Kaffee','Reward ready: free coffee']):S(['Stempel '+st+' von 10','Stamp '+st+' of 10']));
+  if(st>=10)$('sHint').textContent=S(['Karte voll. Belohnung einlösen.','Card full. Redeem the reward.'])};
+ $('sRedeem').onclick=()=>{if(st<10)return;st=0;paint();
+  notif(S(['Eingelöst. Wie war es? Bewerte uns auf Google ★','Redeemed. How was it? Rate us on Google ★']));
+  $('sHint').textContent=S(['Und wieder von vorn: Stempel vergeben','And again: hand out stamps'])};
+ $('langbtn').addEventListener('click',paint);
+ paint();
+})();
+
 
 /* ==================== BÜCHERREGAL ==================== */
 (function(){
